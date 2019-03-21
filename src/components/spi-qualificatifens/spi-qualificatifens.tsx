@@ -3,8 +3,8 @@ import { Component, State } from '@stencil/core';
 import { Coupledequalificatif } from '../../global/Coupledequalificatif';
 
 @Component({
-    tag: 'spi-qualificatif',
-    styleUrl: 'spi-qualificatif.scss',
+    tag: 'spi-qualificatifens',
+    styleUrl: 'spi-qualificatifens.scss',
 })
 export class SpiListCoupleDeQualificatif {
 
@@ -45,7 +45,7 @@ export class SpiListCoupleDeQualificatif {
         if (this.coupledequalificatifs != null) {
             return (
                 <div>
-        <spi-header/>
+        <spi-headeree/>
                 <div class="container">
                 <br></br><br></br>
                 <h1 class="title">Liste des couples de qualificatifs: </h1>
@@ -73,10 +73,7 @@ export class SpiListCoupleDeQualificatif {
                                                         <p id="min">Min : </p><b id="mincontent">{item.minimal}</b>
                                                     </pre></span>
                                                 </div>
-                                                <footer class="card-footer">
-                                                    <a id="edit" class="card-footer-item" href={`/edit/${item.idQualificatif}`}>Modifier</a>
-                                                    <button id="delete" class="card-footer-item" onClick={() => this.deleteQualificatif(item.idQualificatif)}>Supprimer</button>
-                                                </footer>
+                                                
                                             </div>
                                         </div>
                                     )

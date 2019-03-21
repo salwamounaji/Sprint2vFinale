@@ -7,11 +7,13 @@ import { RouterHistory } from '@stencil/router';
 })
 export class AddQualificatif {
 
+  
+
   @Prop() history: RouterHistory;
   minimal: string;
   maximal: string;
   backk() {
-    alert('the qualificatif was added!');
+    alert('le couple qualificatif a été bien crée!');
     window.location.replace("/listq"); // or we can use RouterHistory
   }
   creerQual(q) {
@@ -60,6 +62,8 @@ export class AddQualificatif {
 
   render() {
     return (
+      <div>
+        <spi-header/>
       <section class="section">
         <div class="container">
           <div class="section-heading">
@@ -115,7 +119,7 @@ export class AddQualificatif {
                     </div>
 
                     <div class="control">
-                      <button class="button is-info" id="button" onClick={this.back}>
+                      <button class="button is-info" id="button" onClick={() => this.back()}>
                         <span class="icon" id="icon"><i class="fas fa-undo"></i></span>
                         <span id="span">Retour</span></button>
                     </div>
@@ -129,9 +133,9 @@ export class AddQualificatif {
               </div>
             </div>
           </div>
-          <br/><br/><br/> <br/><br/><br/>
+          <br/><br/><br/> <br/><br/><br/><br/><br/><br/> <br/><br/><br/><br/>
         </div>
-      </section>
+      </section></div>
 
     );
   }

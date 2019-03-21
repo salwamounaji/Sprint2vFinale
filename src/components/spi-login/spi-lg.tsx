@@ -37,20 +37,19 @@ export class SpiLg {
       return response.json();
     })
     .then((res)=> {
-       this.data=res;
-       sessionStorage.setItem('role', this.data.role);
-       if(this.data.role=='admin'){
-        this.history.replace('/profil');
-       }
-       else{
-         this.history.replace('/profilenseignant');}
-    })
-    .catch((error) =>{
-      console.log('Request failed', error);
-      this.var = "Le mot de passe ou bien le login est incorrect";
-    })
-  }
-
+      this.data=res;
+      sessionStorage.setItem('role', this.data.role);
+      if(sessionStorage.getItem('role') == "administrateur"){
+       this.history.replace('/profil');
+      }
+      else{
+        this.history.replace('/profilenseignant');}
+   })
+   .catch((error) =>{
+     console.log('Request failed', error);
+     this.var = "Le mot de passe ou bien le login est incorrect";
+   })
+ }
   componentWillLoad() {
          
 }
@@ -58,6 +57,10 @@ export class SpiLg {
     
     render() {
         return (
+          <div>
+            <div>
+          <spi-headere></spi-headere>
+          </div>
         <section class="login is-fullheight">
       <div class="login-body">
         <div class="container v-middle">
@@ -119,6 +122,7 @@ export class SpiLg {
        
       </div>
   </section>
+  </div>
         );
     }
 }

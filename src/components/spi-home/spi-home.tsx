@@ -17,8 +17,9 @@ export class SpiHome {
                   <h1 class="title">Bienvenue !</h1>
                         <h1 class="title">
                     Votre nouvelle plateforme SPI-ADM est en cours de construction... <br></br><br></br>
-                   <div class="loader"></div>   </h1>                 
+                     </h1>                 
                   </div>
+                  <a class="button is-link" id="showModal" href="/login"><i class="fas fa-sign-in-alt"></i>&nbsp; Connectez vous !</a>
               </div>
           </div>
 

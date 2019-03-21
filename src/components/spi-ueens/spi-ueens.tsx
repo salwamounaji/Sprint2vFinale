@@ -2,8 +2,8 @@ import { Component, State, Prop } from '@stencil/core';
 import { MatchResults } from '@stencil/router';
 
 @Component({
-    tag: "spi-ue",
-    styleUrl: "spi-ue.scss"
+    tag: "spi-ueens",
+    styleUrl: "spi-ueens.scss"
 })
 export class SpiUe {
     
@@ -47,7 +47,7 @@ export class SpiUe {
           }).then(() => {alert("L'unité d'enseignement a été bien supprimée");
           location.href='/ue/'+this.match.params.codeFormation;
         }).catch((error) => {
-            alert(' Erreur ! Veuillez réssayer plutard ');
+            alert('Erreur ! Veuillez réssayer plutard ');
             console.error(error);
           });
     }
@@ -60,10 +60,10 @@ export class SpiUe {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify(tr),
-          }).then(() => {alert("L'unité d'enseignement a été bien supprimée");
+          }).then(() => {alert("Deleted !!");
           location.href='/ue/'+this.match.params.codeFormation;
         }).catch((error) => {
-            alert('Erreur ! Veuillez réssayer plutard ');
+            alert(' Error ! please retry !! ');
             console.error(error);
           });
     }
@@ -94,7 +94,7 @@ export class SpiUe {
     render() {
         return (
             <div>
-        <spi-header/>
+        <spi-headeree/>
             
             <section class="container">
             <div class="container has-text-centered">
@@ -123,9 +123,8 @@ export class SpiUe {
                         <p class="control">        
                        <a class="button is-dark" id="showModal"  onClick={() => this.getuebynum(pst.id.codeUe)}><i class="fab fa-elementor"></i>&nbsp;Element Constitutif</a>
                         </p>
-                        <p class="control" >
-                            <a class="button is-dark" onClick={() => this.deletefnct(pst)}><i class="fas fa-trash-alt"></i></a>
-                        </p>
+                        
+
                         </div>
                       </div>
                     </div>
@@ -145,7 +144,7 @@ export class SpiUe {
                                     <tr>
                                         <th class="has-text-centered is-info is-bordered">Element Constitutif</th>
                                         <th class="has-text-centered is-info is-bordered">Description</th>
-                                        <th class="has-text-centered is-info is-bordered" >Supprimer</th>
+                                        
                                         
                                     </tr>
                                    
@@ -156,7 +155,7 @@ export class SpiUe {
                                 <tr>
                                         <td class="has-text-centered">{tr.id.codeEc}</td>
                                         <td class="has-text-centered">{tr.description}</td>
-                                        <td class="has-text-centered" onClick={() => this.deletefoncion(tr)}><i class="fas fa-trash-alt"></i></td>
+                                        
                                     </tr>
                                     
                                 )}
@@ -165,7 +164,7 @@ export class SpiUe {
                     </div>
                   </div>
                 </div><br></br>
-                    <button class="button" id="showModal" onClick={() => this.getens2()}>Close</button>
+                    <button class="button" id="showModal" onClick={() => this.getens2()}>Fermer</button>
                 </div>
            </div>
             </div>

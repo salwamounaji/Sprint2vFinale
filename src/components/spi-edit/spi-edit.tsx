@@ -18,6 +18,8 @@ export class SpiEdit {
 
 
     componentWillLoad() {
+        console.log(sessionStorage.getItem('role'));
+        if(sessionStorage.getItem('role') == null){window.location.replace('/login');}
         fetch('http://app-aead2b86-a4bb-4a14-9b97-cd0d09d78ae6.cleverapps.io/qualificatif/' + this.match.params.id)
             .then(res => res.json())
             .then(res => {this.qualificatif = res;
@@ -42,10 +44,9 @@ export class SpiEdit {
         }).then((response) => response.json())
             .then((responseJson) => {
                 console.log("teest1");
-                alert('le couple de qualificatif a été modifier!');
+                alert('le couple de qualificatif a été bien modifié!');
                 return responseJson.articles;
             }).then(() => {
-                console.log("teest");
                 location.href = '/listq';
             })
             .catch((error) => {
@@ -58,6 +59,8 @@ export class SpiEdit {
     render() {
         if (this.qualificatif != null) {
             return (
+                <div>
+                <spi-header/>
 
                 <section class="section">
                     <div class="container">
@@ -115,7 +118,7 @@ export class SpiEdit {
                         </div>
                         <br /><br /><br /> <br /><br /><br />
                     </div>
-                </section>
+                </section></div>
 
             );
         }

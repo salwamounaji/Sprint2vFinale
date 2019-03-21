@@ -21,6 +21,8 @@ export class SpiTest {
 
     render() {
         return (
+          <div>
+        <spi-header/>
             
             <section class="container">
             <div class="container has-text-centered">
@@ -61,7 +63,7 @@ export class SpiTest {
                    
            </div>
             </div>
-        </section>
+        </section></div>
         );
     }
 }

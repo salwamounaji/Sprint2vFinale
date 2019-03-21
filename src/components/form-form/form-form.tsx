@@ -29,6 +29,10 @@ export class FormForm {
       this.toggleEdit();
     }
   }
+  componentWillLoad(){
+    console.log(sessionStorage.getItem('role'));
+    if(sessionStorage.getItem('role') == null){window.location.replace('/login');}
+  }
 
   toggleEdit() {
     let elements: any = document.getElementsByTagName("input");
@@ -365,7 +369,7 @@ export class FormForm {
                       </p>
                     </div>
                   )}
-              </form>
+              </form><br></br><br></br><br></br>
             </div>
           </div></div>
       );

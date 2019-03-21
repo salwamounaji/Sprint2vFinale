@@ -1,6 +1,6 @@
 import { Component, Prop } from '@stencil/core';
 import { Formation } from '../../global/formation';
-import { Enseignant } from '../../global/enseignant';
+import { Enseignant } from '../../global/Enseignant';
 import { RouterHistory } from '@stencil/router';
 
 @Component({
@@ -81,8 +81,10 @@ export class Adduni {
       });
       
   }
-
+  
   componentWillLoad() {
+    console.log(sessionStorage.getItem('role'));
+    if(sessionStorage.getItem('role') == null){window.location.replace('/login');}
     return fetch("http://app-aead2b86-a4bb-4a14-9b97-cd0d09d78ae6.cleverapps.io/formations")
       .then(response => response.json())
       .then(data => {
@@ -94,12 +96,15 @@ export class Adduni {
           this.enseignants = data || []; console.log(this.enseignants);
         });
   }
+  
   back() {
     this.history.goBack();
   }
 
   render() {
     return (
+      <div>
+        <spi-header/>
       <section class="section">
         <div class="container">
           <div class="section-heading">
@@ -243,7 +248,7 @@ export class Adduni {
                     </div>
 
                     <div class="control">
-                      <button class="button is-info" id="button" onClick={this.back}>
+                      <button class="button is-info" id="button" onClick={()=>this.back()}>
                         <span class="icon"><i class="fas fa-undo"></i></span>
                         <span>Retour</span></button>
                     </div>
@@ -256,7 +261,7 @@ export class Adduni {
             </div>
           </div>
         </div>
-      </section>
+      </section></div>
 
     );
   }

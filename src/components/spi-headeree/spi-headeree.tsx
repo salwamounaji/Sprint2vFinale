@@ -1,13 +1,14 @@
-import { Component } from "@stencil/core";
+import { Component, Prop } from "@stencil/core";
+import { RouterHistory } from "@stencil/router";
 
 @Component({
-  tag: "spi-header",
-  styleUrl: "spi-header.scss"
+  tag: "spi-headeree",
+  styleUrl: "spi-headeree.scss"
 })
-export class SpiHeader {
+export class SpiHeaderee {
   burger!: any;
   menu!: any;
-
+  @Prop() history: RouterHistory;
   toggleBurger() {
     console.log("quizz!!");
     this.burger.classList.toggle("is-active");
@@ -15,14 +16,14 @@ export class SpiHeader {
   }
 
   LogOut(){
-    sessionStorage.removeItem('role');
-    window.location.replace('/login');
-    
-}
-componentWillLoad(){
-  console.log(sessionStorage.getItem('role'));
-  if(sessionStorage.getItem('role') == null){window.location.replace('/login');}
-}
+      sessionStorage.removeItem('role');
+      window.location.replace('/login');
+      
+  }
+  componentWillLoad(){
+    console.log(sessionStorage.getItem('role'));
+    if(sessionStorage.getItem('role') == null){window.location.replace('/login');}
+  }
 
   render() {
     return (
@@ -52,7 +53,7 @@ componentWillLoad(){
                       </span>
                       
                       <span class="navbar-item">
-                          <a class="button is-white is-outlined" href="/list">
+                          <a class="button is-white is-outlined" href="/listens">
                               <span class="icon">
                                   <i class="fa fa-book"></i>
                               </span>
@@ -60,7 +61,7 @@ componentWillLoad(){
                           </a>
                       </span>
                       <span class="navbar-item">
-                          <a class="button is-white is-outlined" href="/profil">
+                          <a class="button is-white is-outlined" href="/profilenseignant">
                               <span class="icon">
                               <i class="fas fa-user-alt"></i>
                               </span>

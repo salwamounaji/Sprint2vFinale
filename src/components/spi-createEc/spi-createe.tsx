@@ -1,8 +1,8 @@
 import { Component, Prop, State } from '@stencil/core';
 import { RouterHistory } from '@stencil/router';
 import { Formation } from '../../global/formation';
-import { Enseignant } from '../../global/enseignant';
-import { UniteEnseignement } from '../../global/UniteEnseignement';
+import { Enseignant } from '../../global/Enseignant';
+import { UniteEnseignement } from '../../global/uniteEnseignement';
 
 
 @Component({
@@ -69,10 +69,10 @@ export class SpiCreatee {
         "Content-Type": "application/json"
       },
       body: JSON.stringify(payload)
-    }).then(() => { alert("L'élément constitutif a été bien créer!");
+    }).then(() => { alert("L'élément constitutif a été bien crée!");
     location.href = '/ue/'+this.formation.codeFormation; }
 ).catch((error) => {
-   alert('ERREUR, Réessayer plutard!');
+   alert('Erreur ! Veuillez réssayer plutard');
    console.error(error);
 });
     
@@ -86,9 +86,11 @@ export class SpiCreatee {
           console.log(this.uniteenseignements);
         })
   }
-
+  
 
   componentWillLoad() {
+    console.log(sessionStorage.getItem('role'));
+    if(sessionStorage.getItem('role') == null){window.location.replace('/login');}
     return fetch("http://app-aead2b86-a4bb-4a14-9b97-cd0d09d78ae6.cleverapps.io/formations")
       .then(response => response.json())
       .then(data => {
@@ -106,9 +108,13 @@ export class SpiCreatee {
         });
   }
 
+
   render() {
+
     if (this.enseignants != null && this.formations != null && this.uniteenseignements != null) {
       return (
+        <div>
+        <spi-header/>
         <section class="section">
           <div class="container">
 
@@ -247,7 +253,7 @@ export class SpiCreatee {
               </div>
             </div>
           </div>
-        </section>
+        </section></div>
       );
     }
     else {

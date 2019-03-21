@@ -2,6 +2,8 @@
 @import "../../../node_modules/bulma/sass/grid/columns.sass";
 @import "../../../node_modules/bulma/sass/layout/hero.sass";
 @import "../../../node_modules/bulma/sass/elements/title.sass";
+@import "../../../node_modules/bulma/sass/elements/button.sass";
+
 
 /* go on then, styles go here.. knock yourself out! */
 
@@ -9,16 +11,9 @@
 html, body {
  
   box-sizing: border-box;
-  background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1YjzxG30I3yAmFECAnJE9rDHMiYW6Qdna0K7EQ8hQ-1zEwIuD);
+  background: url(https://images.pexels.com/photos/62693/pexels-photo-62693.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500);
   background-size:cover ;
 
-}
-.deco{
-  margin-left:75%;
-}
-.center{
-  margin-left:37%;
-  margin-right:auto;
 }
 .title{
     color:white;
@@ -33,88 +28,11 @@ html, body {
 .table {
     background-color: white;
     color: #363636;
-    margin-top: 30px;
-    margin-left: 140px;
-    width: 100%;
-    //Adding responsive touch
-    border-collapse: collapse;
-    table-layout: fixed;
-    overflow-x:auto;
+    margin-top: -280px;
 }
-
-table caption {
-  font-size: 1.5em;
-  margin: .5em 0 .75em;
+div.column.is-9{
+    margin-top:12px;
 }
-
-
-table tr {
-  background-color: #f8f8f8;
-  border: 1px solid #ddd;
-  padding: .35em;
-}
-
-table th,
-table td {
-  padding: .625em;
-  text-align: center;
-}
-
-table th {
-  font-size: .85em;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-}
-
-@media screen and (max-width: 1200px) {
-  table {
-    border: 0;
-  }
-
-  table caption {
-    font-size: 1.3em;
-  }
-  
-  table thead {
-    border: none;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
-  }
-  
-  table tr {
-    border-bottom: 3px solid #ddd;
-    display: block;
-    margin-bottom: .625em;
-  }
-  
-  table td {
-    border-bottom: 1px solid #ddd;
-    display: block;
-    font-size: .8em;
-    text-align: right;
-  }
-  
-  table td::before {
-    /*
-    * aria-label has no advantage, it won't be read inside a table
-    content: attr(aria-label);
-    */
-    content: attr(data-label);
-    float: left;
-    font-weight: bold;
-    text-transform: uppercase;
-  }
-  
-  table td:last-child {
-    border-bottom: 0;
-  }
-}
-
 
 .myicon a{
 color: white;
@@ -148,26 +66,27 @@ aside {
   border-bottom: 0px solid #00695C;
   border-radius: 90%;
   margin: 0 auto;
+  margin-top: 2px;
+  margin-bottom: 10px;
   display: block;
   height: 260px;
   width: 230px;
-  background: url(https://wallpaper.wiki/wp-content/uploads/2017/04/wallpaper.wiki-Free-Blurry-Backgrounds-PIC-WPC008953.jpg);
+  background-image: url(https://images.pexels.com/photos/799443/pexels-photo-799443.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500);
   background-size: cover;
   overflow: hidden;
   box-shadow: 0 0 100px 10px #fff;
   transition: all ease 0.3s;
-  margin-right:6px;
-  margin-top: -100px;
-  margin-left: 10px;
+  margin-right:560px;
+  margin-top: -70px;
+  margin-bottom: 100px;
 }
 
 aside:hover {
-  border-top: 4px solid #26A69A;
-  border-bottom: 4px solid #00695C;
+ 
   border-radius: 5px;
   height: 390px;
-  width: 310px;
-  box-shadow: 0 0 70px 10px #fff;
+  width: 360px;
+  box-shadow: 0 0 70px 10px black;
 }
 
 aside:hover header img {
@@ -219,7 +138,7 @@ header h2 {
 .hero-body {
     margin-top: 90px;
     font-size:27px;
-    color: #EA0437;
+   // color: #EA0437;
    padding: 10px 20px 10px 20px !important;
 }
 
@@ -271,7 +190,7 @@ header h2 {
   color: #fff;
   font-size: 24px;
   opacity: 0;
- background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.42) 49%, rgba(0, 0, 0, 0.61) 100%);
+// background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.42) 49%, rgba(0, 0, 0, 0.61) 100%);
 }
 
 aside:hover .profile-bio {
@@ -286,7 +205,7 @@ aside:hover .profile-bio {
 .profile-social-links {
   position: relative;
   margin-top: -370px;
-  margin-left: 30px;
+  margin-left: -12px;
   list-style-type: none;
   opacity: 0;
   transition: all ease 0.6s;
@@ -297,15 +216,15 @@ aside:hover .profile-social-links {
   opacity: 1;
 }
 .profile-social-links a {
-    color :white;
+    color: white;
     cursor: pointer;
     text-decoration: none;
 }
 .profile-social-links li img {
   width: 10px;
-  background: red;
+  background: #fff;
   border-radius: 50%;
-  padding: 15px;
+  padding: 5px;
 }
 /*PROFILE IMAGE ANIMATE */
 
@@ -529,4 +448,33 @@ aside:hover ul li:nth-child(3) {
   100% {
     transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
   }
+}
+
+
+
+.card{
+  background-color: white;
+  -webkit-box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+  box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+  color: #4a4a4a;
+  width: 100%;
+  position: relative;
+  border: 3px;
+
+}
+
+
+.color{
+  background-color:#95A1C3;
+}
+
+.card-content .title {
+  color: aliceblue;
+  font-size: 19px;
+  font-weight: 500;
+  line-height: 1.125;
+  text-align: center;
+}
+#color{
+  color:midnightblue;
 }

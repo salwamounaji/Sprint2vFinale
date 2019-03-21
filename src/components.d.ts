@@ -68,11 +68,24 @@ export namespace Components {
   interface SpiHeader {}
   interface SpiHeaderAttributes extends StencilHTMLAttributes {}
 
+  interface SpiHeadere {}
+  interface SpiHeadereAttributes extends StencilHTMLAttributes {}
+
+  interface SpiHeaderee {
+    'history': RouterHistory;
+  }
+  interface SpiHeadereeAttributes extends StencilHTMLAttributes {
+    'history'?: RouterHistory;
+  }
+
   interface SpiHome {}
   interface SpiHomeAttributes extends StencilHTMLAttributes {}
 
   interface SpiList {}
   interface SpiListAttributes extends StencilHTMLAttributes {}
+
+  interface SpiListens {}
+  interface SpiListensAttributes extends StencilHTMLAttributes {}
 
   interface SpiLg {
     'history': RouterHistory;
@@ -97,6 +110,9 @@ export namespace Components {
   interface SpiQualificatif {}
   interface SpiQualificatifAttributes extends StencilHTMLAttributes {}
 
+  interface SpiQualificatifens {}
+  interface SpiQualificatifensAttributes extends StencilHTMLAttributes {}
+
   interface SpiRoot {}
   interface SpiRootAttributes extends StencilHTMLAttributes {}
 
@@ -109,6 +125,13 @@ export namespace Components {
   interface SpiUeAttributes extends StencilHTMLAttributes {
     'match'?: MatchResults;
   }
+
+  interface SpiUeens {
+    'match': MatchResults;
+  }
+  interface SpiUeensAttributes extends StencilHTMLAttributes {
+    'match'?: MatchResults;
+  }
 }
 
 declare global {
@@ -119,16 +142,21 @@ declare global {
     'SpiCreatee': Components.SpiCreatee;
     'SpiEdit': Components.SpiEdit;
     'SpiHeader': Components.SpiHeader;
+    'SpiHeadere': Components.SpiHeadere;
+    'SpiHeaderee': Components.SpiHeaderee;
     'SpiHome': Components.SpiHome;
     'SpiList': Components.SpiList;
+    'SpiListens': Components.SpiListens;
     'SpiLg': Components.SpiLg;
     'SpiProfile': Components.SpiProfile;
     'SpiProfilenseignant': Components.SpiProfilenseignant;
     'QualificatifAdd': Components.QualificatifAdd;
     'SpiQualificatif': Components.SpiQualificatif;
+    'SpiQualificatifens': Components.SpiQualificatifens;
     'SpiRoot': Components.SpiRoot;
     'SpiTest': Components.SpiTest;
     'SpiUe': Components.SpiUe;
+    'SpiUeens': Components.SpiUeens;
   }
 
   interface StencilIntrinsicElements {
@@ -138,16 +166,21 @@ declare global {
     'spi-createe': Components.SpiCreateeAttributes;
     'spi-edit': Components.SpiEditAttributes;
     'spi-header': Components.SpiHeaderAttributes;
+    'spi-headere': Components.SpiHeadereAttributes;
+    'spi-headeree': Components.SpiHeadereeAttributes;
     'spi-home': Components.SpiHomeAttributes;
     'spi-list': Components.SpiListAttributes;
+    'spi-listens': Components.SpiListensAttributes;
     'spi-lg': Components.SpiLgAttributes;
     'spi-profile': Components.SpiProfileAttributes;
     'spi-profilenseignant': Components.SpiProfilenseignantAttributes;
     'qualificatif-add': Components.QualificatifAddAttributes;
     'spi-qualificatif': Components.SpiQualificatifAttributes;
+    'spi-qualificatifens': Components.SpiQualificatifensAttributes;
     'spi-root': Components.SpiRootAttributes;
     'spi-test': Components.SpiTestAttributes;
     'spi-ue': Components.SpiUeAttributes;
+    'spi-ueens': Components.SpiUeensAttributes;
   }
 
 
@@ -187,6 +220,18 @@ declare global {
     new (): HTMLSpiHeaderElement;
   };
 
+  interface HTMLSpiHeadereElement extends Components.SpiHeadere, HTMLStencilElement {}
+  var HTMLSpiHeadereElement: {
+    prototype: HTMLSpiHeadereElement;
+    new (): HTMLSpiHeadereElement;
+  };
+
+  interface HTMLSpiHeadereeElement extends Components.SpiHeaderee, HTMLStencilElement {}
+  var HTMLSpiHeadereeElement: {
+    prototype: HTMLSpiHeadereeElement;
+    new (): HTMLSpiHeadereeElement;
+  };
+
   interface HTMLSpiHomeElement extends Components.SpiHome, HTMLStencilElement {}
   var HTMLSpiHomeElement: {
     prototype: HTMLSpiHomeElement;
@@ -197,6 +242,12 @@ declare global {
   var HTMLSpiListElement: {
     prototype: HTMLSpiListElement;
     new (): HTMLSpiListElement;
+  };
+
+  interface HTMLSpiListensElement extends Components.SpiListens, HTMLStencilElement {}
+  var HTMLSpiListensElement: {
+    prototype: HTMLSpiListensElement;
+    new (): HTMLSpiListensElement;
   };
 
   interface HTMLSpiLgElement extends Components.SpiLg, HTMLStencilElement {}
@@ -229,6 +280,12 @@ declare global {
     new (): HTMLSpiQualificatifElement;
   };
 
+  interface HTMLSpiQualificatifensElement extends Components.SpiQualificatifens, HTMLStencilElement {}
+  var HTMLSpiQualificatifensElement: {
+    prototype: HTMLSpiQualificatifensElement;
+    new (): HTMLSpiQualificatifensElement;
+  };
+
   interface HTMLSpiRootElement extends Components.SpiRoot, HTMLStencilElement {}
   var HTMLSpiRootElement: {
     prototype: HTMLSpiRootElement;
@@ -247,6 +304,12 @@ declare global {
     new (): HTMLSpiUeElement;
   };
 
+  interface HTMLSpiUeensElement extends Components.SpiUeens, HTMLStencilElement {}
+  var HTMLSpiUeensElement: {
+    prototype: HTMLSpiUeensElement;
+    new (): HTMLSpiUeensElement;
+  };
+
   interface HTMLElementTagNameMap {
     'form-add': HTMLFormAddElement
     'form-form': HTMLFormFormElement
@@ -254,16 +317,21 @@ declare global {
     'spi-createe': HTMLSpiCreateeElement
     'spi-edit': HTMLSpiEditElement
     'spi-header': HTMLSpiHeaderElement
+    'spi-headere': HTMLSpiHeadereElement
+    'spi-headeree': HTMLSpiHeadereeElement
     'spi-home': HTMLSpiHomeElement
     'spi-list': HTMLSpiListElement
+    'spi-listens': HTMLSpiListensElement
     'spi-lg': HTMLSpiLgElement
     'spi-profile': HTMLSpiProfileElement
     'spi-profilenseignant': HTMLSpiProfilenseignantElement
     'qualificatif-add': HTMLQualificatifAddElement
     'spi-qualificatif': HTMLSpiQualificatifElement
+    'spi-qualificatifens': HTMLSpiQualificatifensElement
     'spi-root': HTMLSpiRootElement
     'spi-test': HTMLSpiTestElement
     'spi-ue': HTMLSpiUeElement
+    'spi-ueens': HTMLSpiUeensElement
   }
 
   interface ElementTagNameMap {
@@ -273,16 +341,21 @@ declare global {
     'spi-createe': HTMLSpiCreateeElement;
     'spi-edit': HTMLSpiEditElement;
     'spi-header': HTMLSpiHeaderElement;
+    'spi-headere': HTMLSpiHeadereElement;
+    'spi-headeree': HTMLSpiHeadereeElement;
     'spi-home': HTMLSpiHomeElement;
     'spi-list': HTMLSpiListElement;
+    'spi-listens': HTMLSpiListensElement;
     'spi-lg': HTMLSpiLgElement;
     'spi-profile': HTMLSpiProfileElement;
     'spi-profilenseignant': HTMLSpiProfilenseignantElement;
     'qualificatif-add': HTMLQualificatifAddElement;
     'spi-qualificatif': HTMLSpiQualificatifElement;
+    'spi-qualificatifens': HTMLSpiQualificatifensElement;
     'spi-root': HTMLSpiRootElement;
     'spi-test': HTMLSpiTestElement;
     'spi-ue': HTMLSpiUeElement;
+    'spi-ueens': HTMLSpiUeensElement;
   }
 
 

@@ -1,10 +1,10 @@
 import { Component, State } from '@stencil/core';
 
 @Component({
-    tag: "spi-list",
-    styleUrl: "spi-list.scss"
+    tag: "spi-listens",
+    styleUrl: "spi-listens.scss"
 })
-export class SpiList {
+export class SpiListens {
     
     @State() posts: any = [];
     @State() posts2: any =[];
@@ -75,7 +75,7 @@ export class SpiList {
     render() {
         return (
           <div>
-        <spi-header/>
+        <spi-headeree/>
             
             <section class="container">
             <div class="container has-text-centered">
@@ -108,13 +108,11 @@ export class SpiList {
                         <p><b id="accreditation">Fin Accréditation : </b>{pst.finAccreditation}</p>
                         <div class="field is-grouped">
                         <p class="control">
-                        <stencil-route-link url={'/ue/'+pst.codeFormation}>       
+                        <stencil-route-link url={'/ueens/'+pst.codeFormation}>       
                        <a class="button is-dark" id="showModal"><i class="fas fa-info"></i>&nbsp;Détails</a>
                        </stencil-route-link> 
                         </p>
-                        <p class="control">
-                            <a class="button is-dark" onClick={() => this.deletefnct(pst)}><i class="fas fa-trash-alt"></i>&nbsp;Supprimer</a>
-                        </p>
+                        
                         </div>
                       </div>
                     </div>
