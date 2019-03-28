@@ -15,6 +15,16 @@ html, body {
   background-size:cover ;
 
 }
+
+#a{
+  color:aliceblue;
+  margin-left:32%;
+}
+
+.box{
+  background-color:royalblue;
+  color:aliceblue;
+}
 .title{
     color:white;
 }
@@ -64,17 +74,17 @@ header img {
 aside {
   border-top: 0px solid #26A69A;
   border-bottom: 0px solid #00695C;
-  border-radius: 90%;
   margin: 0 auto;
   margin-top: 2px;
   margin-bottom: 10px;
   display: block;
-  height: 260px;
-  width: 230px;
+  border-radius: 5px;
+  height: 390px;
+  width: 360px;
   background-image: url(https://images.pexels.com/photos/799443/pexels-photo-799443.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500);
   background-size: cover;
   overflow: hidden;
-  box-shadow: 0 0 100px 10px #fff;
+  box-shadow: 0 0 70px 10px black;
   transition: all ease 0.3s;
   margin-right:560px;
   margin-top: -70px;
@@ -143,7 +153,7 @@ header h2 {
 }
 
 /** CSS FOR COLLAPSIBLE **/
-.collapsible {
+/*.collapsible {
     background-color: #00204E;
     color: white;
     cursor: pointer;
@@ -154,7 +164,7 @@ header h2 {
     outline: none;
     font-size: 15px;
   }
-  
+  */
   .active, .collapsible:hover {
     background-color: #001D68;
   }
@@ -172,9 +182,6 @@ header h2 {
   }
   
 
-.columns{
-    margin: 0px auto;
-  }
 
 .content {
     padding: 0 18px;
@@ -464,9 +471,7 @@ aside:hover ul li:nth-child(3) {
 }
 
 
-.color{
-  background-color:#95A1C3;
-}
+
 
 .card-content .title {
   color: aliceblue;

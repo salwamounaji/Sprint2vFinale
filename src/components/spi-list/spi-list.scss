@@ -21,7 +21,6 @@ html, body {
   background-size: cover;
 }
 
-
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
@@ -35,8 +34,18 @@ html, body {
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
   }
-  
-  /* Modal Content */
+  #plus{
+    font-size: 80px;
+    float: right; 
+    color: white;
+  }
+
+  #card{
+    width: 35vh;
+    margin-top: 20px;
+    margin-right: 8px;
+}
+
   .modal-content {
     background-color: #fefefe;
     margin: auto;

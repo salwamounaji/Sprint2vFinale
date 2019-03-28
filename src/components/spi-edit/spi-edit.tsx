@@ -1,5 +1,6 @@
 import { Component, State, Prop } from '@stencil/core';
 import { MatchResults, RouterHistory } from '@stencil/router';
+import swal from 'sweetalert';
 
 @Component({
     tag: 'spi-edit',
@@ -19,17 +20,18 @@ export class SpiEdit {
 
     componentWillLoad() {
         console.log(sessionStorage.getItem('role'));
-        if(sessionStorage.getItem('role') == null){window.location.replace('/login');}
+        if (sessionStorage.getItem('role') == null) { window.location.replace('/login'); }
         fetch('http://app-aead2b86-a4bb-4a14-9b97-cd0d09d78ae6.cleverapps.io/qualificatif/' + this.match.params.id)
             .then(res => res.json())
-            .then(res => {this.qualificatif = res;
+            .then(res => {
+            this.qualificatif = res;
                 console.log(this.qualificatif.maximal);
             })
     }
 
 
     modifydata() {
-        
+
         return fetch("http://app-aead2b86-a4bb-4a14-9b97-cd0d09d78ae6.cleverapps.io/qualificatif/modifierQualificatif", {
             method: "PUT",
             headers: {
@@ -41,90 +43,115 @@ export class SpiEdit {
                 maximal: this.maximal.value,
                 minimal: this.minimal.value
             }),
-        }).then((response) => response.json())
-            .then((responseJson) => {
-                console.log("teest1");
-                alert('le couple de qualificatif a été bien modifié!');
-                return responseJson.articles;
-            }).then(() => {
-                location.href = '/listq';
+        }).then(() => {
+            swal({
+                title: "Modification effectuée",
+                text: "La modification du couple de qualificatifs a été bien effectuée",
+                icon: "success",
+
             })
-            .catch((error) => {
-                alert('Erreur! Veuillez réssayer plutard !');
-                console.log(error);
+                .then((willadd) => {
+                    if (willadd) {
+                    }
+                    location.href = '/listq';
+                });
+        }
+
+        ).catch((error) => {
+
+            swal({
+                title: "Modification échouée",
+                text: "le couple de qualificatifs n'a pas été modifié!",
+                icon: "warning",
             });
+
+            console.error(error);
+        });
     }
 
+    back() {
+        this.history.goBack();
+    }
 
     render() {
         if (this.qualificatif != null) {
             return (
                 <div>
-                <spi-header/>
+                    <spi-header />
 
-                <section class="section">
-                    <div class="container">
-                        <div class="section-heading">
+                    <section class="section">
+                        <div class="container">
+                        <br/><br/>
+                            <h2 class="title is-3"><font color="black">Modification d'un couple de qualificatifs</font></h2><br></br>
+                            <div class="section-heading">
 
-                        </div>
-                        <br /><br />
+                            </div>
+                            <br /><br />
 
-                        <div class="columns">
-                            <div class="column is-6 is-offset-3">
-                                <div class="box" id="box">
-                                    <form>
+                            <div class="columns">
+                                <div class="column is-6 is-offset-3">
+                                    <div class="box" id="box">
+                                        <form>
 
 
-                                    <div class="field" id="label">
-                                            <label class="label" id="label">Maximal </label>
-                                            <div class="control">
-                                                <p class="control is-expanded has-icons-left">
+                                            <div class="field" id="label">
+                                                <label class="label" id="label">Maximal </label>
+                                                <div class="control">
+                                                    <p class="control is-expanded has-icons-left">
 
-                                                    <input class="input" type="text" name="Qualificatif maximal" ref={(e: HTMLInputElement) => this.maximal = e} placeholder="Maximal" value={this.qualificatif.maximal} />
-                                                    <span class="icon is-small is-left"><i class="fas fa-plus-square"></i></span>
-                                                </p>
+                                                        <input class="input" type="text" name="Qualificatif maximal" ref={(e: HTMLInputElement) => this.maximal = e} placeholder="Maximal" value={this.qualificatif.maximal} />
+                                                        <span class="icon is-small is-left"><i class="fas fa-plus-square"></i></span>
+                                                    </p>
+                                                </div>
                                             </div>
-                                        </div>
 
-                                        <div class="field">
-                                            <label class="label" id="label">Minimal </label>
-                                            <div class="control">
-                                                <p class="control is-expanded has-icons-left">
+                                            <div class="field">
+                                                <label class="label" id="label">Minimal </label>
+                                                <div class="control">
+                                                    <p class="control is-expanded has-icons-left">
 
-                                                    <input class="input" type="text" name="Qualificatif minimal" ref={(e: HTMLInputElement) => this.minimal = e} placeholder="Minimal" value={this.qualificatif.minimal}/>
-                                                    <span class="icon is-small is-left"><i class="fas fa-minus-square"></i></span>
-                                                </p>
+                                                        <input class="input" type="text" name="Qualificatif minimal" ref={(e: HTMLInputElement) => this.minimal = e} placeholder="Minimal" value={this.qualificatif.minimal} />
+                                                        <span class="icon is-small is-left"><i class="fas fa-minus-square"></i></span>
+                                                    </p>
+                                                </div>
                                             </div>
-                                        </div>
-           
 
 
+
+                                            <br />
+                                            <div class="field is-grouped has-text-centered">
+                                                <div class="control">
+
+
+                                                    <input class="button is-primary" id="modifier" value="Modifier"
+                                                        onClick={() => this.modifydata()}>
+                                                        <span class="icon"><i class="fas fa-pencil-alt" id="icon"></i></span>
+                                                        <span id="span"></span>
+
+                                                    </input>
+                                                </div>
+                                                <div class="control">
+                                                    <button class="button is-info" id="button" onClick={() => this.back()}>
+                                                        <span class="icon"><i class="fas fa-chevron-left" id="icon"></i></span>
+                                                        <span id="span">Retour</span></button>
+                                                </div>
+                                            </div>
+
+                                        </form>
                                         <br />
-                                        <div class="field is-grouped has-text-centered">
-                                            <div class="control">
-                                                <input type="submit" value="Modify" class="button is-primary" id="modifier"
-                                                onClick={() => this.modifydata()}>
-                                                    <span class="icon">
-                                                        <i class="fas fa-check" id="icon"></i> </span>
-                                                    <span id="span">Modifier </span></input>
-                                            </div>
-                                        </div>
 
-                                    </form>
-                                    <br />
-
+                                    </div>
                                 </div>
                             </div>
+                            <br /><br /><br /> <br /><br /><br />
                         </div>
-                        <br /><br /><br /> <br /><br /><br />
-                    </div>
-                </section></div>
+                    </section></div>
 
             );
         }
-       
-      else {
-          return ("Couldn't render the data");
-      }
+
+        else {
+            return ("Couldn't render the data");
+        }
     }
 }

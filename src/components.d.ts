@@ -13,47 +13,35 @@ import {
   MatchResults,
   RouterHistory,
 } from '@stencil/router';
-import {
-  Formation,
-} from './global/formation';
 
 
 export namespace Components {
 
-  interface FormAdd {
+  interface SpiAddform {
     'history': RouterHistory;
     'match': MatchResults;
   }
-  interface FormAddAttributes extends StencilHTMLAttributes {
+  interface SpiAddformAttributes extends StencilHTMLAttributes {
     'history'?: RouterHistory;
-    'match'?: MatchResults;
-  }
-
-  interface FormForm {
-    'formation': Formation;
-    'history': RouterHistory;
-    'isEditMode': boolean;
-    'match': MatchResults;
-  }
-  interface FormFormAttributes extends StencilHTMLAttributes {
-    'formation'?: Formation;
-    'history'?: RouterHistory;
-    'isEditMode'?: boolean;
     'match'?: MatchResults;
   }
 
   interface UniteenseignementAdd {
     'history': RouterHistory;
+    'match': MatchResults;
   }
   interface UniteenseignementAddAttributes extends StencilHTMLAttributes {
     'history'?: RouterHistory;
+    'match'?: MatchResults;
   }
 
   interface SpiCreatee {
     'history': RouterHistory;
+    'match': MatchResults;
   }
   interface SpiCreateeAttributes extends StencilHTMLAttributes {
     'history'?: RouterHistory;
+    'match'?: MatchResults;
   }
 
   interface SpiEdit {
@@ -116,9 +104,6 @@ export namespace Components {
   interface SpiRoot {}
   interface SpiRootAttributes extends StencilHTMLAttributes {}
 
-  interface SpiTest {}
-  interface SpiTestAttributes extends StencilHTMLAttributes {}
-
   interface SpiUe {
     'match': MatchResults;
   }
@@ -136,8 +121,7 @@ export namespace Components {
 
 declare global {
   interface StencilElementInterfaces {
-    'FormAdd': Components.FormAdd;
-    'FormForm': Components.FormForm;
+    'SpiAddform': Components.SpiAddform;
     'UniteenseignementAdd': Components.UniteenseignementAdd;
     'SpiCreatee': Components.SpiCreatee;
     'SpiEdit': Components.SpiEdit;
@@ -154,14 +138,12 @@ declare global {
     'SpiQualificatif': Components.SpiQualificatif;
     'SpiQualificatifens': Components.SpiQualificatifens;
     'SpiRoot': Components.SpiRoot;
-    'SpiTest': Components.SpiTest;
     'SpiUe': Components.SpiUe;
     'SpiUeens': Components.SpiUeens;
   }
 
   interface StencilIntrinsicElements {
-    'form-add': Components.FormAddAttributes;
-    'form-form': Components.FormFormAttributes;
+    'spi-addform': Components.SpiAddformAttributes;
     'uniteenseignement-add': Components.UniteenseignementAddAttributes;
     'spi-createe': Components.SpiCreateeAttributes;
     'spi-edit': Components.SpiEditAttributes;
@@ -178,22 +160,15 @@ declare global {
     'spi-qualificatif': Components.SpiQualificatifAttributes;
     'spi-qualificatifens': Components.SpiQualificatifensAttributes;
     'spi-root': Components.SpiRootAttributes;
-    'spi-test': Components.SpiTestAttributes;
     'spi-ue': Components.SpiUeAttributes;
     'spi-ueens': Components.SpiUeensAttributes;
   }
 
 
-  interface HTMLFormAddElement extends Components.FormAdd, HTMLStencilElement {}
-  var HTMLFormAddElement: {
-    prototype: HTMLFormAddElement;
-    new (): HTMLFormAddElement;
-  };
-
-  interface HTMLFormFormElement extends Components.FormForm, HTMLStencilElement {}
-  var HTMLFormFormElement: {
-    prototype: HTMLFormFormElement;
-    new (): HTMLFormFormElement;
+  interface HTMLSpiAddformElement extends Components.SpiAddform, HTMLStencilElement {}
+  var HTMLSpiAddformElement: {
+    prototype: HTMLSpiAddformElement;
+    new (): HTMLSpiAddformElement;
   };
 
   interface HTMLUniteenseignementAddElement extends Components.UniteenseignementAdd, HTMLStencilElement {}
@@ -292,12 +267,6 @@ declare global {
     new (): HTMLSpiRootElement;
   };
 
-  interface HTMLSpiTestElement extends Components.SpiTest, HTMLStencilElement {}
-  var HTMLSpiTestElement: {
-    prototype: HTMLSpiTestElement;
-    new (): HTMLSpiTestElement;
-  };
-
   interface HTMLSpiUeElement extends Components.SpiUe, HTMLStencilElement {}
   var HTMLSpiUeElement: {
     prototype: HTMLSpiUeElement;
@@ -311,8 +280,7 @@ declare global {
   };
 
   interface HTMLElementTagNameMap {
-    'form-add': HTMLFormAddElement
-    'form-form': HTMLFormFormElement
+    'spi-addform': HTMLSpiAddformElement
     'uniteenseignement-add': HTMLUniteenseignementAddElement
     'spi-createe': HTMLSpiCreateeElement
     'spi-edit': HTMLSpiEditElement
@@ -329,14 +297,12 @@ declare global {
     'spi-qualificatif': HTMLSpiQualificatifElement
     'spi-qualificatifens': HTMLSpiQualificatifensElement
     'spi-root': HTMLSpiRootElement
-    'spi-test': HTMLSpiTestElement
     'spi-ue': HTMLSpiUeElement
     'spi-ueens': HTMLSpiUeensElement
   }
 
   interface ElementTagNameMap {
-    'form-add': HTMLFormAddElement;
-    'form-form': HTMLFormFormElement;
+    'spi-addform': HTMLSpiAddformElement;
     'uniteenseignement-add': HTMLUniteenseignementAddElement;
     'spi-createe': HTMLSpiCreateeElement;
     'spi-edit': HTMLSpiEditElement;
@@ -353,7 +319,6 @@ declare global {
     'spi-qualificatif': HTMLSpiQualificatifElement;
     'spi-qualificatifens': HTMLSpiQualificatifensElement;
     'spi-root': HTMLSpiRootElement;
-    'spi-test': HTMLSpiTestElement;
     'spi-ue': HTMLSpiUeElement;
     'spi-ueens': HTMLSpiUeensElement;
   }

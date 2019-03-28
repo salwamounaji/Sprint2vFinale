@@ -2,6 +2,9 @@
 @import "../../../node_modules/bulma/sass/elements/table.sass";
 @import "../../../node_modules/bulma/sass/layout/hero.sass";
 @import "../../../node_modules/bulma/sass/components/modal.sass";
+@import "../../../node_modules/bulma-extensions/bulma-accordion/src/sass/index.sass";
+
+
 .center {
     display: flex;
     justify-content: center;
@@ -11,6 +14,25 @@
     flex: auto;
 }
 
+#plus{
+  font-size: 80px;
+  float: right; 
+  color: white;
+}
+
+a{
+  float: right;
+}
+
+#trash{
+  float: right;
+}
+
+#message{
+  font-size: 20px;
+  color: white;
+  font-weight: bold;
+}
 html, body {
  
   box-sizing: border-box;

@@ -20,12 +20,12 @@ export class SpiRoot {
               <stencil-route url="/profil" component="spi-profile" exact={true} />
               <stencil-route url="/profilenseignant" component="spi-profilenseignant" exact={true} />
               <stencil-route url="/test" component="spi-test" exact={true} />
-              <stencil-route url="/create" component="uniteenseignement-add" exact={true} />
+              <stencil-route url="/create/:codeFormation" component="uniteenseignement-add" exact={true} />
               <stencil-route url="/ue/:codeFormation" component="spi-ue" exact={true} />
               <stencil-route url="/ueens/:codeFormation" component="spi-ueens" exact={true} />
-              <stencil-route url="/createe" component="spi-createe" exact={true} />
+              <stencil-route url="/createe/:codeFormation/:codeUe" component="spi-createe" exact={true} />
               <stencil-route url="/edit/:id" component="spi-edit" exact={true} />
-              <stencil-route url="/ajout" component="form-add" exact={true} />
+              <stencil-route url="/ajout" component="spi-addform" exact={true} />
               <stencil-route url="/listq" component="spi-qualificatif" exact={true} />
               <stencil-route url="/listqens" component="spi-qualificatifens" exact={true} />
               <stencil-route url="/addq" component="qualificatif-add" exact={true} />

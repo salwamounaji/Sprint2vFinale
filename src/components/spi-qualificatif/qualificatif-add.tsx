@@ -1,19 +1,24 @@
-import { Component, Prop } from '@stencil/core';
+import { Component, Prop} from '@stencil/core';
 import { RouterHistory } from '@stencil/router';
+import swal from 'sweetalert';
+
 
 @Component({
   tag: 'qualificatif-add',
   styleUrl: 'qualificatif-add.scss'
 })
+
 export class AddQualificatif {
 
-  
+ 
+   
+ 
 
   @Prop() history: RouterHistory;
   minimal: string;
   maximal: string;
   backk() {
-    alert('le couple qualificatif a été bien crée!');
+    
     window.location.replace("/listq"); // or we can use RouterHistory
   }
   creerQual(q) {
@@ -43,17 +48,31 @@ export class AddQualificatif {
         "Content-Type": "application/json"
       },
       body: JSON.stringify(payload)
-    })
-    .then((response) => response.json())
-      .then((responseJson) => {
-        this.backk();
-        return responseJson.enseignants;
+    }) .then(() => {
+      swal({
+          title: "Ajout effectué",
+          text: "L'ajout du couple de qualificatifs a été bien effectué",
+          icon: "success",
+
       })
-      .catch((error) => {
-        console.error(error);
-      });
-      
+          .then((willadd) => {
+              if (willadd) {
+              } 
+              location.href = '/listq';
+          });
   }
+
+  ).catch((error) => {
+
+      swal({
+          title: "Ajout échoué",
+          text: "le couple de qualificatifs n'a pas été ajouté!",
+          icon: "warning",
+      });
+
+      console.error(error);
+  });
+}
 
   
   back() {
@@ -66,8 +85,10 @@ export class AddQualificatif {
         <spi-header/>
       <section class="section">
         <div class="container">
+        <br/><br/>
+        <h2 class="title is-3"><font color="black">Ajout d'un couple de qualificatifs</font></h2><br></br>
           <div class="section-heading">
-
+            
           </div>
           <br /><br />
 
@@ -102,27 +123,20 @@ export class AddQualificatif {
                   <div class="field is-grouped has-text-centered">
                     <div class="control">
                       <button type="submit" class="button is-info" id="button" onClick={this.creerQual.bind(this)}>
+          
                         <span class="icon">
                           <i class="fas fa-check"id="icon"></i>                          </span>
-                        <span id="span">Ajouter </span></button>
+                        <span id="span">Valider </span></button>
 
 
                     </div>
-                    <div class="control">
-
-                      <button type="reset" class="button is-info " id="button"  value="Reset">
-                        <span class="icon">
-                          <i class="fas fa-ban" id="icon"></i></span>
-                        <span id="span">Cancel</span></button>
-
-
-                    </div>
+                   
 
                     <div class="control">
-                      <button class="button is-info" id="button" onClick={() => this.back()}>
-                        <span class="icon" id="icon"><i class="fas fa-undo"></i></span>
-                        <span id="span">Retour</span></button>
-                    </div>
+                        <button class="button is-info" id="button" onClick={() => this.back()}>
+                          <span class="icon"><i class="fas fa-chevron-left" id="icon"></i></span>
+                          <span id="span">Retour</span></button>
+                      </div>
 
 
                   </div>

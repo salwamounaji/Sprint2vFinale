@@ -25,3 +25,18 @@ background-position: center;
   }
   #button{
 background-color: darkturquoise;}
+
+input:required{
+  border-color: red;
+}
+
+input{
+  border-color: blue;
+}
+
+h2{
+  font-family: aclonica, sans-serif;
+  font-size: 20px;
+  margin-top: -30px;
+  text-align: center;
+}

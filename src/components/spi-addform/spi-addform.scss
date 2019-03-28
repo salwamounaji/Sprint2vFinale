@@ -1,27 +1,23 @@
- @import"../../../node_modules/bulma/sass/grid/columns.sass";
+@import"../../../node_modules/bulma/sass/grid/columns.sass";
 @import"../../../node_modules/bulma/sass/elements/form.sass";
 
-
-
-
 body{
-    background-image:url('https://images.pexels.com/photos/1558690/pexels-photo-1558690.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+    background-image:url('https://images.pexels.com/photos/442574/pexels-photo-442574.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 120vh;
   }
-
-.column {
-  background-color: inherit;}
-
-#box{
-    background-color: rgba(0,0,0,0.5);
-  }
-  #label{
-    color: azure
-  }
+  
+  .column {
+    background-color: inherit;}
+  
+  #box{
+      background-color: rgba(0,0,0,0.2);
+    }
+    #label{
+      color: azure
+    }
 
   input:required, select:required{
     border-color: red;
@@ -29,6 +25,10 @@ body{
   
   input{
     border-color: blue;
+  }
+
+  button{
+      float: right;
   }
 
   h2{

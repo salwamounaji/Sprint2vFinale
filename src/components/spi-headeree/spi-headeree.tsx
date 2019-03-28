@@ -48,7 +48,7 @@ export class SpiHeaderee {
                               <span class="icon">
                                   <i class="fa fa-home"></i>
                               </span>
-                              <span>Home</span>
+                              <span>Accueil</span>
                           </a>
                       </span>
                       
@@ -57,7 +57,7 @@ export class SpiHeaderee {
                               <span class="icon">
                                   <i class="fa fa-book"></i>
                               </span>
-                              <span>Formations</span>
+                              <span>Formation</span>
                           </a>
                       </span>
                       <span class="navbar-item">
@@ -73,7 +73,7 @@ export class SpiHeaderee {
                               <span class="icon">
                                   <i class="fas fa-sign-in-alt"></i>
                               </span>
-                              <span>Logout</span>
+                              <span>Se déconnecter</span>
                           </a>
                       </span>
                   </div>

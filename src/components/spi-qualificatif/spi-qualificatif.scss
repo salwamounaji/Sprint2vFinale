@@ -1,65 +1,107 @@
 @import "../../../node_modules/bulma/sass/components/card.sass";
 @import "../../../node_modules/bulma/sass/grid/columns.sass";
 
+@import "../../../node_modules/bulma/sass/components/card.sass";
+@import "../../../node_modules/bulma/sass/grid/columns.sass";
+@import "../../../node_modules/bulma/sass/grid/tiles.sass";
+@import "../../../node_modules/bulma/sass/elements/table.sass";
+@import "../../../node_modules/bulma/sass/layout/hero.sass";
 
-.card{
-    width: 42vh;
-    margin-top: 20px;
-    margin-right: 8px;
+
+
+html,body{
+   
+   background-image: url('https://images.pexels.com/photos/316466/pexels-photo-316466.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500');
+   background-position: center;
+   background-size: cover;
+   height:100%;
+  }
+  #plus{
+    font-size: 80px;
+    float: right; 
+    color: black;
+  }
+
+.hero .title a {
+  text-decoration: underline;
 }
 
-.columns.is-multiline{
-    flex: auto;
-    margin-top: 15px;
+
+#table{
+  background-color: rgba(0,0,0,0.15em);
 }
 
+.table{
+    margin-left: 30px;
+    font-size:20px;
+    margin-top:0px;
+    border-collapse: collapse;
+    border-spacing: 0;
+    display: inline-table;
+    font-weight: 500;
+    table-layout: fixed;
+    width: 200px;
+ 
+}
 
-body{
-    background-color: rgb(224,224,224);
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
- }
-
- button, #edit {
-    background-color: rgb(154,176,209);
-    color: white;
-    margin: 0 auto;
-    border: none;
-    font-size: 13px;
-    font-weight: 700;
-    text-transform: uppercase;
-    padding: 16px 20px;
-    border-radius: 2px;
-    box-shadow: 0 8px 16px rgba(0,0,0,.1), 0 3px 6px rgba(0,0,0,.08);
-    outline: 0;
-    letter-spacing: .04em;
-    transition: all .15s ease;
-    cursor: pointer;
-  }
-    
-  button:hover {
-    box-shadow: 0 3px 6px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.1);
-    transform: translateY(1px);
-  }
-
-  #max, #min, h1{
-      font-family: aclonica, sans-serif;
-      font-size: 15px;
-  }
-
-  h1{
-    font-family: aclonica, sans-serif;
-    font-size: 20px;
-    margin-top: -30px;
+.table thead{
     text-align: center;
-  }
+}
 
-  #maxcontent, #mincontent{
-     margin-left: 7.5vh;
-  }
+.table th {
+text-align: center;
+}
 
-  #contentmaxmin{
-    margin: 0 auto;
-  }
+.table tr{
+  text-align: center;
+
+    line-height: 26px;
+}
+
+.table thead td, .table thead th {
+    border-width: 0 0 2px;
+    color: #5A73E9;
+    height: 40px;
+    text-align: center;
+
+}
+
+child td, .table.is-bordered tr:last-child th {
+    border-bottom-width: 3px;
+    background-color:#D0D6F6;
+    text-align: center;
+
+}
+
+span{
+    align-content: center;
+}
+.table.is-bordered tr:last-child td, .table.is-bordered tr:last-child th {
+    border-bottom-width: 2.5px;
+}
+
+child td, .table.is-bordered tr:last-child th {
+    border-bottom-width: 3px;
+    width: 120px;
+   
+}
+
+td{
+    width: 12px;
+}
+td,
+th {
+   
+  border: 1px solid;
+  padding: .5em 1em;
+
+  border: 1px solid black;
+  overflow: hidden;
+  
+}
+h2{
+  font-family: aclonica, sans-serif;
+  font-size: 20px;
+  margin-top: -30px;
+  text-align: center;
+}

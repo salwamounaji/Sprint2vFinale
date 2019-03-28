@@ -1,174 +1,126 @@
 import { Component, State, Prop } from '@stencil/core';
 import { MatchResults } from '@stencil/router';
+import bulmaAccordion from '../../../node_modules/bulma-extensions/bulma-accordion/dist/js/bulma-accordion.js'
 
 @Component({
     tag: "spi-ueens",
     styleUrl: "spi-ueens.scss"
 })
 export class SpiUe {
-    
-    @State() posts: any =[];
-    @State() posts2: any =[];
+
+    @State() posts: any = [];
+    @State() posts2: any = [];
     @Prop() match: MatchResults;
+    accordions = bulmaAccordion.attach();
 
     componentWillLoad() {
         console.log(sessionStorage.getItem('role'));
-        if(sessionStorage.getItem('role') == null){window.location.replace('/login');}
-        fetch('http://app-aead2b86-a4bb-4a14-9b97-cd0d09d78ae6.cleverapps.io/uniteEnseignement/Formation/'+this.match.params.codeFormation)
-        .then(response => response.json())
-        .then(data => {
-        this.posts = data;
-        console.log(this.posts)
-        });
-        
-        }
+        if (sessionStorage.getItem('role') == null) { window.location.replace('/login'); }
+        fetch('http://app-aead2b86-a4bb-4a14-9b97-cd0d09d78ae6.cleverapps.io/uniteEnseignement/Formation/' + this.match.params.codeFormation)
+            .then(response => response.json())
+            .then(data => {
+                this.posts = data;
+                console.log(this.posts)
+            });
 
-        componentDidLoad() {
-            this.modifyselection();
-        }
-
-    modifyselection( ) {   
-        let rows = document.getElementsByTagName('tr');
-        for (var i = 1; i < rows.length; i++) {
-            let element = rows[i];
-            element.onmouseover = () => element.classList.toggle('is-selected');
-            element.onmouseout = () => element.classList.toggle('is-selected');
-        }
     }
 
-    deletefnct(pst){
-        let url='http://app-aead2b86-a4bb-4a14-9b97-cd0d09d78ae6.cleverapps.io/uniteEnseignement/supprimer'
-        return fetch((url),{
-        method:'DELETE',headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(pst),
-          }).then(() => {alert("L'unité d'enseignement a été bien supprimée");
-          location.href='/ue/'+this.match.params.codeFormation;
+    componentDidLoad() {
+            this.accordions = bulmaAccordion.attach();
+    }
+
+    deletefnct(pst) {
+        let url = 'http://app-aead2b86-a4bb-4a14-9b97-cd0d09d78ae6.cleverapps.io/uniteEnseignement/supprimer'
+        return fetch((url), {
+            method: 'DELETE', headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(pst),
+        }).then(() => {
+            alert("L'unité d'enseignement a été bien supprimée");
+            location.href = '/ue/' + this.match.params.codeFormation;
         }).catch((error) => {
             alert('Erreur ! Veuillez réssayer plutard ');
             console.error(error);
-          });
+        });
     }
-    
-    deletefoncion(tr){
-        let url='http://app-aead2b86-a4bb-4a14-9b97-cd0d09d78ae6.cleverapps.io/elementsconstitutifs'
-        return fetch((url),{
-        method:'DELETE',headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(tr),
-          }).then(() => {alert("Deleted !!");
-          location.href='/ue/'+this.match.params.codeFormation;
+
+    deletefoncion(tr) {
+        let url = 'http://app-aead2b86-a4bb-4a14-9b97-cd0d09d78ae6.cleverapps.io/elementsconstitutifs'
+        return fetch((url), {
+            method: 'DELETE', headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(tr),
+        }).then(() => {
+            alert("Deleted !!");
+            location.href = '/ue/' + this.match.params.codeFormation;
         }).catch((error) => {
             alert(' Error ! please retry !! ');
             console.error(error);
-          });
+        });
     }
 
-    
     getuebynum(num) {
-        this.getue();
         let url = 'http://app-aead2b86-a4bb-4a14-9b97-cd0d09d78ae6.cleverapps.io/elementsconstitutifs/uniteEnseignement/'
-        return fetch(url + num) 
+        return fetch(url + num)
             .then(response => response.json())
             .then(data => {
                 this.posts2 = data;
                 console.log(this.posts2);
             });
-        
-    }
 
-    getue(){
-        let t1 = document.getElementById("md");
-        t1.classList.toggle("is-active");
-    }
-    getens2(){
-        let t1 = document.getElementById("md");
-        t1.classList.remove("is-active");
-        //t1.classList.toggle("is-clipped ");
     }
 
     render() {
         return (
             <div>
-        <spi-headeree/>
-            
-            <section class="container">
-            <div class="container has-text-centered">
-                  
-                  <h1 class="title">
-                  <br></br><font color="white">Liste des unités d'enseignements :</font>
-                      </h1>
-                      </div>
-            <br></br><br></br>
-              <div class="columns features">
-              <div class="columns is-desktop is-multiline">
-              {this.posts.map(
-                            (pst) =>
-                <div class="column is-3">
-                  <div class="card is-shady">
-                    <div class="card-image">
-                      <figure class="image is-4by3">
-                        <img src="https://images.pexels.com/photos/415071/pexels-photo-415071.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Placeholder image" class="modal-button" data-target="modal-image2"/>
-                      </figure>
-                    </div>
-                    <div class="card-content">
-                      <div class="content">
-                        <h4>{pst.id.codeUe}</h4>
-                        <p>{pst.designation}</p>
-                        <div class="field is-grouped">
-                        <p class="control">        
-                       <a class="button is-dark" id="showModal"  onClick={() => this.getuebynum(pst.id.codeUe)}><i class="fab fa-elementor"></i>&nbsp;Element Constitutif</a>
-                        </p>
-                        
+                <spi-headeree />
 
-                        </div>
-                      </div>
+                <section class="container">
+                    <div class="container has-text-centered">
+
+                        <h1 class="title">
+                            <br /><br /><br /><font color="white">Les unités d'enseignements de la formation {this.match.params.codeFormation}</font>
+                        </h1>
+
+                        <br /><br />
                     </div>
-                  </div>
-                </div>
-                )}
-                <div class="modal" id="md">
-                <div class="modal-background"></div>
-                <div class="modal-content">
-                  <div class="card-content">
-                    <div class="content">
-                    <div class="message-header">
-                        <p id="p1"></p>
-                    </div>
-                            <table class="table is-responsive is-striped is-bordered ">
-                                <thead>
-                                    <tr>
-                                        <th class="has-text-centered is-info is-bordered">Element Constitutif</th>
-                                        <th class="has-text-centered is-info is-bordered">Description</th>
-                                        
-                                        
-                                    </tr>
-                                   
-                                </thead>
-                                <tbody>
-                                {this.posts2.map(
-                                    (tr) =>
-                                <tr>
-                                        <td class="has-text-centered">{tr.id.codeEc}</td>
-                                        <td class="has-text-centered">{tr.description}</td>
-                                        
-                                    </tr>
-                                    
-                                )}
-                                </tbody>
-                            </table>
-                    </div>
-                  </div>
-                </div><br></br>
-                    <button class="button" id="showModal" onClick={() => this.getens2()}>Fermer</button>
-                </div>
-           </div>
-            </div>
-        </section></div>
+                    <br></br><br></br>
+                    <section class="accordions">
+                        {this.posts.length == 0 ?
+                            <div id="message">
+                                Il n'y a pas d'unités d'enseignements pour cette formation.
+                                        </div>
+                            :
+                            this.posts.map(item => {
+                                return (
+                                    <article class="accordion  ">
+                                        <div class="accordion-header ">
+                                            <p> {item.id.codeUe}</p>
+                                            <button class="toggle" aria-label="toggle" onClick={() => this.getuebynum(item.id.codeUe)}></button>
+                                        </div>
+                                        <div class="accordion-body">
+                                            {this.posts2.length == 0 ?
+                                                <div class="accordion-content">
+                                                    Il n'y a pas d'élements constitutifs pour cette unité d'enseignement.
+                                        </div>
+                                                :
+                                                this.posts2.map(item2 => {
+                                                    return (
+                                                        <div class="accordion-content">
+                                                            {item2.designation}
+                                                        </div>
+                                                    );
+                                                })}
+                                        </div>
+                                    </article>
+                                );
+                            })}
+                    </section></section></div >
+
         );
     }
 }
