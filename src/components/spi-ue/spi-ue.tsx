@@ -42,7 +42,7 @@ export class SpiUe {
             cancelButtonColor: '#d33',
             cancelButtonText: 'Annuler',
             confirmButtonText: 'Oui, supprimer!'
-          }).then((result) => {
+        }).then((result) => {
             if (result.value) {
                 let url = 'http://app-aead2b86-a4bb-4a14-9b97-cd0d09d78ae6.cleverapps.io/uniteEnseignement/supprimerPK'
                 return fetch((url), {
@@ -56,31 +56,36 @@ export class SpiUe {
                         codeUe: codeue
                     }),
                 }).then(response => {
-                if (response.status === 406) {
-                  Swal.fire(
-                    'Suppression effectuée!',
-                    "L'unité d'enseignement a été bien supprimée.",
-                    'success'
-                  )
-                  location.href = '/ue/'+this.match.params.codeFormation;
-                }
-                else {
-                  Swal.fire(
+                    if (response.status === 406) {
+                        Swal.fire({
+                            type: 'success',
+                            title:"L'unité d'enseignement a été bien supprimée.",
+                            showConfirmButton: false,
+                            timer: 1300
+                          })
+                              .then((willadd) => {
+                                  if (willadd) {
+                                  } 
+                                  location.href = '/ue/' + this.match.params.codeFormation;
+                              });
+                    }
+                    else {
+                        Swal.fire(
+                            'Suppression échouée!',
+                            "L'unité d'enseignement n'a pas été supprimée.",
+                            'warning'
+                        )
+                    }
+                });
+            }
+            else {
+                Swal.fire(
                     'Suppression échouée!',
                     "L'unité d'enseignement n'a pas été supprimée.",
                     'warning'
-                  )
-                }
-              });
+                )
             }
-            else {
-              Swal.fire(
-                'Suppression échouée!',
-                "L'unité d'enseignement n'a pas été supprimée.",
-                'warning'
-              )
-            }
-          });
+        });
     }
 
     deleteelem(codeue: string, codeec: string) {
@@ -93,30 +98,45 @@ export class SpiUe {
             cancelButtonColor: '#d33',
             cancelButtonText: 'Annuler',
             confirmButtonText: 'Oui, supprimer!'
-          }).then((result) => {
+        }).then((result) => {
             if (result.value) {
                 let url = 'http://app-aead2b86-a4bb-4a14-9b97-cd0d09d78ae6.cleverapps.io/elementsconstitutifs/' + this.match.params.codeFormation + '/' + codeue + '/' + codeec
-        return fetch((url), {
-            method: 'DELETE', headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
+                return fetch((url), {
+                    method: 'DELETE', headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                    }
+                }).then(response => {
+                    if (response.status === 200) {
+                        Swal.fire({
+                            type: 'success',
+                            title:"L'élément constitutif a été bien supprimé.",
+                            showConfirmButton: false,
+                            timer: 1300
+                          })
+                              .then((willadd) => {
+                                  if (willadd) {
+                                  } 
+                                  location.href = '/ue/' + this.match.params.codeFormation;
+                              });
+                    }
+                    else {
+                        Swal.fire(
+                            'Suppression échouée!',
+                            "L'élément constitutif n'a pas été supprimé.",
+                            'warning'
+                        )
+                    }
+                });
             }
-        }).then(() => {
-                  Swal.fire(
-                    'Suppression effectuée!',
-                    "L'élément constitutif a été bien supprimé.",
-                    'success'
-                  )
-                  window.location.replace('/ue/'+this.match.params.codeFormation);
-            });}
             else {
-              Swal.fire(
-                'Suppression échouée!',
-                "L'élément constitutif n'a pas été supprimée.",
-                'warning'
-              )
+                Swal.fire(
+                    'Suppression échouée!',
+                    "L'élément constitutif n'a pas été supprimé.",
+                    'warning'
+                )
             }
-          });
+        });
     }
 
 
@@ -165,7 +185,6 @@ export class SpiUe {
                                         </div>
                                         <div class="accordion-body">
                                             <div>
-                                                <a class="button is-dark" id="showModal">Supprimer tout les E.Cs</a>
                                                 <stencil-route-link url={'/createe/' + this.match.params.codeFormation + '/' + item.id.codeUe}>
                                                     <a class="button is-dark" id="showModal">Ajouter un E.C</a>
                                                 </stencil-route-link>

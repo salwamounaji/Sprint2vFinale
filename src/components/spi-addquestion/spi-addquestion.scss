@@ -1,0 +1,52 @@
+@import"../../../node_modules/bulma/sass/grid/columns.sass";
+@import"../../../node_modules/bulma/sass/elements/form.sass";
+
+
+
+
+html, body {
+ 
+  box-sizing: border-box;
+  background-image:url("https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#h1{
+  color:azure;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif, sans-serif;
+  font-size: 28px;
+  text-align: center;
+
+}
+.column {
+  background-color: inherit;}
+
+#box{
+    background-color: rgba(0,0,0,0.3);
+  }
+  #label{
+    color: azure
+  }
+  #button{
+background-color: rgba(0,0,0,0.3);}
+
+input:required{
+  border-color: red;
+}
+
+#span{
+  color: whitesmoke
+}
+label{
+  color:cornsilk;
+}
+
+h2{
+  font-family: aclonica, sans-serif;
+  font-size: 20px;
+  margin-top: -30px;
+  text-align: center;
+  
+}

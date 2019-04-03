@@ -10,6 +10,7 @@ import { Component} from '@stencil/core';
 export class SpiProfileEnseignant {
   componentWillLoad(){
     console.log(sessionStorage.getItem('role'));
+    console.log(sessionStorage.getItem('no_enseignant'))
     if(sessionStorage.getItem('role') == null){window.location.replace('/login');}
   }
 
@@ -29,7 +30,7 @@ export class SpiProfileEnseignant {
           <aside class="profile-card" >
             <header>
               <img src="https://images.pexels.com/photos/1043473/pexels-photo-1043473.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"></img>
-              <h1>Mr. SALIOU Philippe</h1><br></br>
+              <h1>Mr. {sessionStorage.getItem('nomEnseignant')} {sessionStorage.getItem('prenomEnseignant')}</h1><br></br>
               <h2></h2>
             </header>
             <div class="profile-bio">
@@ -53,6 +54,10 @@ export class SpiProfileEnseignant {
                   &nbsp;&nbsp;&nbsp;<br/><br/>
                   <span class="box">
                     <a id="a"href="/listqens"><font color="black">Qualificatif</font></a>
+                  </span>
+                  &nbsp;&nbsp;&nbsp;<br/><br/>
+                  <span class="box">
+                    <a id="a"href="/listeval"><font color="black">Évaluation</font></a>
                   </span>
                 </p>
             </div>

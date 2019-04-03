@@ -1,7 +1,6 @@
 import { Component, Prop } from '@stencil/core';
 import { RouterHistory, MatchResults } from '@stencil/router';
-import swal from 'sweetalert';
-
+import Swal from 'sweetalert2'
 
 @Component({
     tag: 'spi-addform',
@@ -20,7 +19,7 @@ export class SpiAddForm {
 
 
     back() {
-        this.history.goBack();
+        window.location.replace('/list');
     }
 
 
@@ -61,23 +60,24 @@ export class SpiAddForm {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(payload)
-        }) .then(response => {
-            if(response.ok){
-            swal({
-                title: "Ajout effectué",
-                text: "L'ajout de la formation a été bien effectué",
-                icon: "success",
-            })
-            location.href = '/list';
-        }else {
-           swal({
-                title: "Ajout échoué",
-                text: "La formation n'a pas été ajoutée!",
-                icon: "warning",
-            });
-        }
-    });
-
+        }).then(response => {
+            if (response.status === 200) {
+                Swal.fire({
+                    type: 'success',
+                    title:"Ajout effectué",
+                    showConfirmButton: false,
+                    timer: 2000
+                  })
+                          location.href = '/list';
+            }
+            else {
+                Swal.fire(
+                    'Ajout échoué!',
+                    "La formation n'a pas été ajoutée",
+                    'warning'
+                )
+            }
+        });
     }
 
 
@@ -114,10 +114,10 @@ export class SpiAddForm {
                                         </div>
 
                                         <div class="field">
-                                           <label class="label" id="label"> Diplôme <span class="red"></span> </label>
+                                           <label class="label" id="label"> Diplôme </label>
                                             <p class="control has-icons-left">
                                                 <span class="select" >
-                                                    <select onInput={(e: any) => (this.diplome = e.target.value)} required >
+                                                    <select onInput={(e: any) => (this.diplome = e.target.value)}>
                                                         <option value="D" selected>Doctorat</option>
                                                         <option value="L">Licence</option>
                                                         <option value="M">Master</option>
@@ -132,7 +132,7 @@ export class SpiAddForm {
                                         <div class="field">
                                             <label class="label" id="label">Intitulé de la formation </label>
                                             <div class="control has-icons-left">
-                                                <input class="input" type="text" placeholder="Entrer le nom de la formation" name="nomFormation" value="" onChange={(e: any) => (this.nomFormation = e.target.value)} required/>
+                                                <input class="input" type="text" placeholder="Entrer le nom de la formation" name="nomFormation" value="" onChange={(e: any) => (this.nomFormation = e.target.value)}/>
                                                 <span class="icon is-small is-left">
                                                     <i class="fab fa-wpforms"></i>
                                                 </span>
@@ -142,7 +142,7 @@ export class SpiAddForm {
                                         <div class="field">
                                             <label class="label" id="label">N° de l'année</label>
                                             <div class="control has-icons-left">
-                                                <input class="input " type="number" placeholder="Entrer le N° de l'année" name="n0annee" value="" onChange={(e: any) => (this.n0Annee = e.target.value)} required />
+                                                <input class="input " type="number" placeholder="Entrer le N° de l'année" name="n0annee" value="" onChange={(e: any) => (this.n0Annee = e.target.value)}/>
                                                 <span class="icon is-small is-left">
                                                     <i class="fas fa-sort-numeric-up"></i>
                                                 </span>
@@ -152,7 +152,7 @@ export class SpiAddForm {
                                         <div class="field">
                                             <label class="label " id="label">Date du début d'accréditation</label>
                                             <div class="control has-icons-left">
-                                                <input class="input" type="date" placeholder="Entrer la date du début d'accréditation" name="datedebut" value="" onChange={(e: any) => (this.debutAccreditation = e.target.value)} required />
+                                                <input class="input" type="date" placeholder="Entrer la date du début d'accréditation" name="datedebut" value="" onChange={(e: any) => (this.debutAccreditation = e.target.value)} />
                                                 <span class="icon is-small is-left">
                                                     <i class="fas fa-calendar-alt"></i>
                                                 </span>
@@ -162,7 +162,7 @@ export class SpiAddForm {
                                         <div class="field">
                                             <label class="label " id="label">Date de la fin d'accréditation </label>
                                             <div class="control has-icons-left">
-                                                <input class="input" type="date" placeholder="Entrer la date de la fin d'accréditation" name="datefin" value="" onChange={(e: any) => (this.finAccreditation = e.target.value)} required />
+                                                <input class="input" type="date" placeholder="Entrer la date de la fin d'accréditation" name="datefin" value="" onChange={(e: any) => (this.finAccreditation = e.target.value)} />
                                                 <span class="icon is-small is-left">
                                                     <i class="fas fa-clock"></i>
                                                 </span>
@@ -171,7 +171,7 @@ export class SpiAddForm {
                                             <label class="label" id="label">Double diplôme ? <span class="red"></span> </label>
                                                 <p class="control has-icons-left">
                                                     <span class="select" >
-                                                        <select onInput={(e: any) => (this.doubleDiplome = e.target.value)} required >
+                                                        <select onInput={(e: any) => (this.doubleDiplome = e.target.value)} >
                                                             <option value="N" selected>Non</option>
                                                             <option value="O">Oui</option>
                                                         </select>

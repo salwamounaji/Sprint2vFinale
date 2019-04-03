@@ -2,11 +2,12 @@ import { Component, Prop} from '@stencil/core';
 import { RouterHistory, MatchResults } from '@stencil/router';
 import { Enseignant } from '../../global/Enseignant';
 import swal from 'sweetalert';
+import Swal from 'sweetalert2';
 
 
 @Component({
   tag: 'spi-createe',
-  styleUrl: 'spi-createe.scss'
+  styleUrl: 'spi-createee.scss'
 })
 export class SpiCreatee {
   @Prop() match: MatchResults;
@@ -68,12 +69,18 @@ export class SpiCreatee {
       body: JSON.stringify(payload)
     }).then(response => {
       if(response.ok){
-      swal({
-          title: "Ajout effectué",
-          text: "L'ajout de l'élément constitutif a été bien effectué",
-          icon: "success",
-      })
-      window.location.replace("/ue/"+this.match.params.codeFormation);
+        Swal.fire({
+          type: 'success',
+          title: 'Ajout effectué',
+          showConfirmButton: false,
+          timer: 1100
+        })
+            .then((willadd) => {
+                if (willadd) {
+                } 
+                window.location.replace("/ue/"+this.match.params.codeFormation);
+            });
+     
   }else {
      swal({
           title: "Ajout échoué",
@@ -143,7 +150,7 @@ export class SpiCreatee {
                       <div class="field">
                         <label class="label" id="label">Désignation </label>
                         <div class="control has-icons-left">
-                          <input class="input" type="text" placeholder="Entrer la désignation" name="designation" value="" onChange={(e: any) => (this.designation = e.target.value)} minlength="1"  required />
+                          <input class="input" type="text" placeholder="Entrer la désignation" name="designation" value="" onChange={(e: any) => (this.designation = e.target.value)} />
                           <span class="icon is-small is-left">
                             <i class="fas fa-pencil-alt"></i>
                           </span>
@@ -163,7 +170,7 @@ export class SpiCreatee {
                       <div class="field">
                         <label class="label" id="label">Nombre d'heure de cours </label>
                         <div class="control has-icons-left">
-                          <input class="input " type="number" placeholder="Entrer le nombre d'heure des cours" name="nbhCm" value="" onChange={(e: any) => (this.nbhCm = e.target.value)} minlength="1" required/>
+                          <input class="input " type="number" placeholder="Entrer le nombre d'heure des cours" name="nbhCm" value="" onChange={(e: any) => (this.nbhCm = e.target.value)}/>
                           <span class="icon is-small is-left">
                             <i class="fas fa-clock"></i>
                           </span>
@@ -173,7 +180,7 @@ export class SpiCreatee {
                       <div class="field">
                         <label class="label " id="label">Nombre d'heures de TDs</label>
                         <div class="control has-icons-left">
-                          <input class="input" type="number" placeholder="Entrer le nombre d'heures des travaux dirigés" name="nbhTd" value="" onChange={(e: any) => (this.nbhTd = e.target.value)} minlength="1"  required/>
+                          <input class="input" type="number" placeholder="Entrer le nombre d'heures des travaux dirigés" name="nbhTd" value="" onChange={(e: any) => (this.nbhTd = e.target.value)}/>
                           <span class="icon is-small is-left">
                             <i class="far fa-clock"></i>
                           </span>
@@ -183,7 +190,7 @@ export class SpiCreatee {
                       <div class="field">
                         <label class="label " id="label">Nombre d'heures de TPs</label>
                         <div class="control has-icons-left">
-                          <input class="input" type="number" placeholder="Entrer le nombre d'heures des travaux pratiques" name="nbhTp" value="" onChange={(e: any) => (this.nbhTp = e.target.value)} minlength="1"  required/>
+                          <input class="input" type="number" placeholder="Entrer le nombre d'heures des travaux pratiques" name="nbhTp" value="" onChange={(e: any) => (this.nbhTp = e.target.value)} />
                           <span class="icon is-small is-left">
                             <i class="fas fa-clock"></i>
                           </span>
@@ -217,7 +224,7 @@ export class SpiCreatee {
                           <label class="label" id="label"> Enseignant <span class="red"></span> </label>
                           <p class="control has-icons-left has-icons-right">
                             <div class="select is-info">
-                              <select class="is-rounded is-info" onInput={(e: any) => (this.enseignant.noEnseignant = e.target.value)} required>
+                              <select class="is-rounded is-info" onInput={(e: any) => (this.enseignant.noEnseignant = e.target.value)}>
                                 {this.enseignants.map(item =>
                                   <option value={item.noEnseignant}>{item.nom} {item.prenom}</option>
                                 )}

@@ -55,12 +55,17 @@ export class SpiList {
               body: JSON.stringify(pst),
             }).then(response => {
               if (response.status == 200) {
-                Swal.fire(
-                  'Suppression effectuée!',
-                  'La formation a été bien supprimée.',
-                  'success'
-                )
-                location.href = '/list';
+                Swal.fire({
+                  type: 'success',
+                  title:"La formation a été bien supprimée.",
+                  showConfirmButton: false,
+                  timer: 1300
+                })
+                    .then((willadd) => {
+                        if (willadd) {
+                        } 
+                        location.href = '/list';
+                    });
               }
               else {
                 Swal.fire(
@@ -95,13 +100,25 @@ export class SpiList {
   }
 
   normalizeYear(contenu: string): string {
-    return contenu.substring(0, 4);
+    if(contenu == null){
+      return " ";
+    }
+    else {
+      return contenu.substring(0, 4);}
   }
   normalizeMonth(contenu: string): string {
-    return contenu.substring(5, 7);
+    if(contenu == null){
+      return " ";
+    }
+    else {
+    return contenu.substring(5, 7);}
   }
   normalizeDay(contenu: string): string {
-    return contenu.substring(8, 10);
+    if(contenu == null){
+      return " ";
+    }
+    else {
+    return contenu.substring(8, 10);}
   }
 
   getens() {

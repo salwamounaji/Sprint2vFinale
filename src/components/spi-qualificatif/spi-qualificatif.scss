@@ -29,10 +29,15 @@ html,body{
 
 #table{
   background-color: rgba(0,0,0,0.15em);
+  width: 800px;
+}
+
+
+#tablecontainer, .container{
+  margin: 0 auto;
 }
 
 .table{
-    margin-left: 30px;
     font-size:20px;
     margin-top:0px;
     border-collapse: collapse;
@@ -40,7 +45,6 @@ html,body{
     display: inline-table;
     font-weight: 500;
     table-layout: fixed;
-    width: 200px;
  
 }
 
@@ -105,3 +109,4 @@ h2{
   margin-top: -30px;
   text-align: center;
 }
+

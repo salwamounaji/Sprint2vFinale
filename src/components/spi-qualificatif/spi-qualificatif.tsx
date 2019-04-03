@@ -42,24 +42,38 @@ export class SpiListCoupleDeQualificatif {
             body: JSON.stringify({
                 idQualificatif: idQualificatif,
             }),
-        }).then(() => {
-                  Swal.fire(
-                    'Suppression effectuée!',
-                    "Le couple de qualificatifs a été bien supprimé.",
-                    'success'
-                  )
-                  window.location.replace('/listq');
-            });}
-            else {
-              Swal.fire(
-                'Suppression échouée!',
-                "Le couple de qualificatifs n'a pas été supprimé.",
-                'warning'
-              )
+        }).then(response => {
+            if (response.status === 200) {
+                Swal.fire({
+                    type: 'success',
+                    title:"Le couple de qualificatifs a été bien supprimé.",
+                    showConfirmButton: false,
+                    timer: 1300
+                  })
+                      .then((willadd) => {
+                          if (willadd) {
+                          } 
+                          window.location.replace('/listq');
+                      });
             }
-          });
+            else {
+                Swal.fire(
+                    'Suppression échouée!',
+                    "Le couple de qualificatifs n'a pas été supprimé.",
+                    'warning'
+                  )
+            }
+        });
     }
-
+    else {
+        Swal.fire(
+            'Suppression échouée!',
+            "Le couple de qualificatifs n'a pas été supprimé.",
+            'warning'
+          )
+    }
+});
+}
 
     render() {
         if (this.coupledequalificatifs != null) {
@@ -71,10 +85,10 @@ export class SpiListCoupleDeQualificatif {
 
                     <div class="container">
                     <br/><br/><br/><br/>
-                    <h2 class="title is-3"><font color="black">Liste des couples de qualificatifs</font></h2><br></br>
-                   <a href="/addq"><i class="fas fa-plus-square" id="plus"></i></a>
+                    <h2 class="title is-3"><font color="black">Liste des couples de qualificatifs</font></h2>
+                   <a href="/addq"><i class="fas fa-plus-square" id="plus"></i></a><br/><br/>
                     
-
+                   <div id="tablecontainer">
                     <br/><br/>
                         <table id="table" class="table  is-striped is-narrow is-hoverable is-fullwidth">
 
@@ -93,7 +107,7 @@ export class SpiListCoupleDeQualificatif {
                                             <td>{item.minimal}</td>
                                             <td>{item.maximal}</td>
 
-                                            <td>
+                                            <td id="test">
 
 
                                                 <span class="icon has-text-info">
@@ -118,7 +132,7 @@ export class SpiListCoupleDeQualificatif {
                                 )
                             }
                             )
-                                                }                        </table>
+                                                }                        </table></div>
                         <br/>
                     </div><br/><br/><br/><br/><br/><br/></div>                        
 

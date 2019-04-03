@@ -1,6 +1,6 @@
-import { Component, Prop} from '@stencil/core';
-import { RouterHistory } from '@stencil/router';
+import { Component} from '@stencil/core';
 import swal from 'sweetalert';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -10,17 +10,10 @@ import swal from 'sweetalert';
 
 export class AddQualificatif {
 
- 
-   
- 
 
-  @Prop() history: RouterHistory;
   minimal: string;
   maximal: string;
-  backk() {
-    
-    window.location.replace("/listq"); // or we can use RouterHistory
-  }
+
   creerQual(q) {
     q.preventDefault();
     console.log("!");
@@ -49,11 +42,11 @@ export class AddQualificatif {
       },
       body: JSON.stringify(payload)
     }) .then(() => {
-      swal({
-          title: "Ajout effectué",
-          text: "L'ajout du couple de qualificatifs a été bien effectué",
-          icon: "success",
-
+      Swal.fire({
+        type: 'success',
+        title: 'Ajout effectué',
+        showConfirmButton: false,
+        timer: 1100
       })
           .then((willadd) => {
               if (willadd) {
@@ -76,7 +69,7 @@ export class AddQualificatif {
 
   
   back() {
-    this.history.goBack();
+    window.location.replace("/listq");
   }
 
   render() {

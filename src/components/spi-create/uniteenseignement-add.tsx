@@ -2,6 +2,7 @@ import { Component, Prop } from '@stencil/core';
 import { Enseignant } from '../../global/Enseignant';
 import { RouterHistory, MatchResults } from '@stencil/router';
 import swal from 'sweetalert';
+import Swal from 'sweetalert2';
 
 @Component({
   tag: 'uniteenseignement-add',
@@ -68,12 +69,18 @@ export class Adduni {
       body: JSON.stringify(payload)
     }) .then(response => {
       if(response.ok){
-      swal({
-          title: "Ajout effectué",
-          text: "Ajout de l'unité d'enseignement a été bien effectué",
-          icon: "success",
-      })
-      window.location.replace("/ue/"+this.match.params.codeFormation);
+        Swal.fire({
+          type: 'success',
+          title: 'Ajout effectué',
+          showConfirmButton: false,
+          timer: 1300
+        })
+            .then((willadd) => {
+                if (willadd) {
+                } 
+                window.location.replace("/ue/"+this.match.params.codeFormation);
+            });
+     
   }else {
      swal({
           title: "Ajout échoué",
@@ -144,7 +151,7 @@ export class Adduni {
                       <div class="control">
                         <p class="control is-expanded has-icons-left">
 
-                          <input class="input" type="text" placeholder="Entrer la désignation" name="designation" value="" onChange={(e: any) => (this.designation = e.target.value)} minlength="1"  required/>
+                          <input class="input" type="text" placeholder="Entrer la désignation" name="designation" value="" onChange={(e: any) => (this.designation = e.target.value)} />
                           <span class="icon is-small is-left"><i class="fas fa-chalkboard"></i></span>
                         </p>
                       </div>
@@ -168,7 +175,7 @@ export class Adduni {
                           <div class="select is-info is-extra-small">
                             <span class="icon"> <i class="fas fa-user-tie"></i></span>
 
-                            <select class="is-rounded is-info" required onInput={(e: any) => (this.enseignant.noEnseignant = e.target.value)}>
+                            <select class="is-rounded is-info" onInput={(e: any) => (this.enseignant.noEnseignant = e.target.value)}>
                               {this.enseignants.map(item =>
                                 <option value={item.noEnseignant}>{item.nom}&nbsp;{item.prenom}</option>
                               )}
@@ -183,7 +190,7 @@ export class Adduni {
                     <div class="field">
                       <p class="control has-icons-left">
                         <span class="select" >
-                          <select onInput={(e: any) => (this.semestre = e.target.value)} required >
+                          <select onInput={(e: any) => (this.semestre = e.target.value)}>
                             <option value="S10" selected>S10</option>
                             <option value="S9">S9</option>
                             <option value="S8">S8</option>
@@ -207,7 +214,7 @@ export class Adduni {
                       <div class="control">
                         <p class="control is-expanded has-icons-left">
 
-                          <input class="input " type="number" placeholder="Entrer le nombre d'heure des cours" name="nbhCm" value="" onChange={(e: any) => (this.nbhCm = e.target.value)}  minlength="1" required/>
+                          <input class="input " type="number" placeholder="Entrer le nombre d'heure des cours" name="nbhCm" value="" onChange={(e: any) => (this.nbhCm = e.target.value)}/>
                           <span class="icon is-small is-left"><i class="fas fa-clock"></i></span>
                         </p>
 
@@ -219,7 +226,7 @@ export class Adduni {
                       <div class="control">
                         <p class="control is-expanded has-icons-left">
 
-                          <input class="input" type="number" placeholder="Entrer le nombre d'heures des travaux dirigés" name="nbhTd" value="" onChange={(e: any) => (this.nbhTd = e.target.value)}  minlength="1"  required/>
+                          <input class="input" type="number" placeholder="Entrer le nombre d'heures des travaux dirigés" name="nbhTd" value="" onChange={(e: any) => (this.nbhTd = e.target.value)}/>
                           <span class="icon is-small is-left"><i class="fas fa-clock"></i></span>
                         </p>
                       </div>
@@ -229,7 +236,7 @@ export class Adduni {
                       <div class="control">
                         <p class="control is-expanded has-icons-left">
 
-                          <input class="input" type="number" placeholder="Entrer le nombre d'heures des travaux pratiques" name="nbhTp" value="" onChange={(e: any) => (this.nbhTp = e.target.value)} minlength="1"  required/>
+                          <input class="input" type="number" placeholder="Entrer le nombre d'heures des travaux pratiques" name="nbhTp" value="" onChange={(e: any) => (this.nbhTp = e.target.value)}/>
                           <span class="icon is-small is-left"><i class="fas fa-clock"></i></span>
                         </p>
                       </div>

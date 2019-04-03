@@ -60,6 +60,16 @@ export class SpiHeaderee {
                               <span>Formation</span>
                           </a>
                       </span>
+
+                      <span class="navbar-item">
+                          <a class="button is-white is-outlined" href="/listeval">
+                              <span class="icon">
+                                  <i class="fa fa-book"></i>
+                              </span>
+                              <span>Évaluation</span>
+                          </a>
+                      </span>
+
                       <span class="navbar-item">
                           <a class="button is-white is-outlined" href="/profilenseignant">
                               <span class="icon">

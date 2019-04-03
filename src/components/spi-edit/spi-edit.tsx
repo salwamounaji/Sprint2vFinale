@@ -1,6 +1,7 @@
 import { Component, State, Prop } from '@stencil/core';
 import { MatchResults, RouterHistory } from '@stencil/router';
 import swal from 'sweetalert';
+import Swal from 'sweetalert2';
 
 @Component({
     tag: 'spi-edit',
@@ -44,17 +45,17 @@ export class SpiEdit {
                 minimal: this.minimal.value
             }),
         }).then(() => {
-            swal({
-                title: "Modification effectuée",
-                text: "La modification du couple de qualificatifs a été bien effectuée",
-                icon: "success",
-
-            })
-                .then((willadd) => {
-                    if (willadd) {
-                    }
-                    location.href = '/listq';
-                });
+            Swal.fire({
+                type: 'success',
+                title: 'Modification effectuée',
+                showConfirmButton: false,
+                timer: 1100
+              })
+                  .then((willadd) => {
+                      if (willadd) {
+                      } 
+                      window.location.replace("/listq");
+                  });
         }
 
         ).catch((error) => {
@@ -70,7 +71,7 @@ export class SpiEdit {
     }
 
     back() {
-        this.history.goBack();
+       window.location.replace("/listq");
     }
 
     render() {

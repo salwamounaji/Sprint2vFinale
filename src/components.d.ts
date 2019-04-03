@@ -26,6 +26,24 @@ export namespace Components {
     'match'?: MatchResults;
   }
 
+  interface SpiAddquestion {
+    'history': RouterHistory;
+    'match': MatchResults;
+  }
+  interface SpiAddquestionAttributes extends StencilHTMLAttributes {
+    'history'?: RouterHistory;
+    'match'?: MatchResults;
+  }
+
+  interface SpiAddrubrique {
+    'history': RouterHistory;
+    'match': MatchResults;
+  }
+  interface SpiAddrubriqueAttributes extends StencilHTMLAttributes {
+    'history'?: RouterHistory;
+    'match'?: MatchResults;
+  }
+
   interface UniteenseignementAdd {
     'history': RouterHistory;
     'match': MatchResults;
@@ -53,6 +71,13 @@ export namespace Components {
     'match'?: MatchResults;
   }
 
+  interface SpiAddeval {
+    'history': RouterHistory;
+  }
+  interface SpiAddevalAttributes extends StencilHTMLAttributes {
+    'history'?: RouterHistory;
+  }
+
   interface SpiHeader {}
   interface SpiHeaderAttributes extends StencilHTMLAttributes {}
 
@@ -75,6 +100,16 @@ export namespace Components {
   interface SpiListens {}
   interface SpiListensAttributes extends StencilHTMLAttributes {}
 
+  interface SpiEval {}
+  interface SpiEvalAttributes extends StencilHTMLAttributes {}
+
+  interface SpiRubrique {
+    'match': MatchResults;
+  }
+  interface SpiRubriqueAttributes extends StencilHTMLAttributes {
+    'match'?: MatchResults;
+  }
+
   interface SpiLg {
     'history': RouterHistory;
   }
@@ -88,12 +123,8 @@ export namespace Components {
   interface SpiProfilenseignant {}
   interface SpiProfilenseignantAttributes extends StencilHTMLAttributes {}
 
-  interface QualificatifAdd {
-    'history': RouterHistory;
-  }
-  interface QualificatifAddAttributes extends StencilHTMLAttributes {
-    'history'?: RouterHistory;
-  }
+  interface QualificatifAdd {}
+  interface QualificatifAddAttributes extends StencilHTMLAttributes {}
 
   interface SpiQualificatif {}
   interface SpiQualificatifAttributes extends StencilHTMLAttributes {}
@@ -122,15 +153,20 @@ export namespace Components {
 declare global {
   interface StencilElementInterfaces {
     'SpiAddform': Components.SpiAddform;
+    'SpiAddquestion': Components.SpiAddquestion;
+    'SpiAddrubrique': Components.SpiAddrubrique;
     'UniteenseignementAdd': Components.UniteenseignementAdd;
     'SpiCreatee': Components.SpiCreatee;
     'SpiEdit': Components.SpiEdit;
+    'SpiAddeval': Components.SpiAddeval;
     'SpiHeader': Components.SpiHeader;
     'SpiHeadere': Components.SpiHeadere;
     'SpiHeaderee': Components.SpiHeaderee;
     'SpiHome': Components.SpiHome;
     'SpiList': Components.SpiList;
     'SpiListens': Components.SpiListens;
+    'SpiEval': Components.SpiEval;
+    'SpiRubrique': Components.SpiRubrique;
     'SpiLg': Components.SpiLg;
     'SpiProfile': Components.SpiProfile;
     'SpiProfilenseignant': Components.SpiProfilenseignant;
@@ -144,15 +180,20 @@ declare global {
 
   interface StencilIntrinsicElements {
     'spi-addform': Components.SpiAddformAttributes;
+    'spi-addquestion': Components.SpiAddquestionAttributes;
+    'spi-addrubrique': Components.SpiAddrubriqueAttributes;
     'uniteenseignement-add': Components.UniteenseignementAddAttributes;
     'spi-createe': Components.SpiCreateeAttributes;
     'spi-edit': Components.SpiEditAttributes;
+    'spi-addeval': Components.SpiAddevalAttributes;
     'spi-header': Components.SpiHeaderAttributes;
     'spi-headere': Components.SpiHeadereAttributes;
     'spi-headeree': Components.SpiHeadereeAttributes;
     'spi-home': Components.SpiHomeAttributes;
     'spi-list': Components.SpiListAttributes;
     'spi-listens': Components.SpiListensAttributes;
+    'spi-eval': Components.SpiEvalAttributes;
+    'spi-rubrique': Components.SpiRubriqueAttributes;
     'spi-lg': Components.SpiLgAttributes;
     'spi-profile': Components.SpiProfileAttributes;
     'spi-profilenseignant': Components.SpiProfilenseignantAttributes;
@@ -171,6 +212,18 @@ declare global {
     new (): HTMLSpiAddformElement;
   };
 
+  interface HTMLSpiAddquestionElement extends Components.SpiAddquestion, HTMLStencilElement {}
+  var HTMLSpiAddquestionElement: {
+    prototype: HTMLSpiAddquestionElement;
+    new (): HTMLSpiAddquestionElement;
+  };
+
+  interface HTMLSpiAddrubriqueElement extends Components.SpiAddrubrique, HTMLStencilElement {}
+  var HTMLSpiAddrubriqueElement: {
+    prototype: HTMLSpiAddrubriqueElement;
+    new (): HTMLSpiAddrubriqueElement;
+  };
+
   interface HTMLUniteenseignementAddElement extends Components.UniteenseignementAdd, HTMLStencilElement {}
   var HTMLUniteenseignementAddElement: {
     prototype: HTMLUniteenseignementAddElement;
@@ -187,6 +240,12 @@ declare global {
   var HTMLSpiEditElement: {
     prototype: HTMLSpiEditElement;
     new (): HTMLSpiEditElement;
+  };
+
+  interface HTMLSpiAddevalElement extends Components.SpiAddeval, HTMLStencilElement {}
+  var HTMLSpiAddevalElement: {
+    prototype: HTMLSpiAddevalElement;
+    new (): HTMLSpiAddevalElement;
   };
 
   interface HTMLSpiHeaderElement extends Components.SpiHeader, HTMLStencilElement {}
@@ -223,6 +282,18 @@ declare global {
   var HTMLSpiListensElement: {
     prototype: HTMLSpiListensElement;
     new (): HTMLSpiListensElement;
+  };
+
+  interface HTMLSpiEvalElement extends Components.SpiEval, HTMLStencilElement {}
+  var HTMLSpiEvalElement: {
+    prototype: HTMLSpiEvalElement;
+    new (): HTMLSpiEvalElement;
+  };
+
+  interface HTMLSpiRubriqueElement extends Components.SpiRubrique, HTMLStencilElement {}
+  var HTMLSpiRubriqueElement: {
+    prototype: HTMLSpiRubriqueElement;
+    new (): HTMLSpiRubriqueElement;
   };
 
   interface HTMLSpiLgElement extends Components.SpiLg, HTMLStencilElement {}
@@ -281,15 +352,20 @@ declare global {
 
   interface HTMLElementTagNameMap {
     'spi-addform': HTMLSpiAddformElement
+    'spi-addquestion': HTMLSpiAddquestionElement
+    'spi-addrubrique': HTMLSpiAddrubriqueElement
     'uniteenseignement-add': HTMLUniteenseignementAddElement
     'spi-createe': HTMLSpiCreateeElement
     'spi-edit': HTMLSpiEditElement
+    'spi-addeval': HTMLSpiAddevalElement
     'spi-header': HTMLSpiHeaderElement
     'spi-headere': HTMLSpiHeadereElement
     'spi-headeree': HTMLSpiHeadereeElement
     'spi-home': HTMLSpiHomeElement
     'spi-list': HTMLSpiListElement
     'spi-listens': HTMLSpiListensElement
+    'spi-eval': HTMLSpiEvalElement
+    'spi-rubrique': HTMLSpiRubriqueElement
     'spi-lg': HTMLSpiLgElement
     'spi-profile': HTMLSpiProfileElement
     'spi-profilenseignant': HTMLSpiProfilenseignantElement
@@ -303,15 +379,20 @@ declare global {
 
   interface ElementTagNameMap {
     'spi-addform': HTMLSpiAddformElement;
+    'spi-addquestion': HTMLSpiAddquestionElement;
+    'spi-addrubrique': HTMLSpiAddrubriqueElement;
     'uniteenseignement-add': HTMLUniteenseignementAddElement;
     'spi-createe': HTMLSpiCreateeElement;
     'spi-edit': HTMLSpiEditElement;
+    'spi-addeval': HTMLSpiAddevalElement;
     'spi-header': HTMLSpiHeaderElement;
     'spi-headere': HTMLSpiHeadereElement;
     'spi-headeree': HTMLSpiHeadereeElement;
     'spi-home': HTMLSpiHomeElement;
     'spi-list': HTMLSpiListElement;
     'spi-listens': HTMLSpiListensElement;
+    'spi-eval': HTMLSpiEvalElement;
+    'spi-rubrique': HTMLSpiRubriqueElement;
     'spi-lg': HTMLSpiLgElement;
     'spi-profile': HTMLSpiProfileElement;
     'spi-profilenseignant': HTMLSpiProfilenseignantElement;

@@ -30,6 +30,12 @@ export class SpiRoot {
               <stencil-route url="/listqens" component="spi-qualificatifens" exact={true} />
               <stencil-route url="/addq" component="qualificatif-add" exact={true} />
               <stencil-route url="/profilenseignant" component="spi-profilenseignant" exact={true} />
+              <stencil-route url="/addeval" component="spi-addeval" exact={true} />
+              <stencil-route url="/rubrique/:idEvaluation/:designation" component="spi-rubrique" exact={true}/>
+              <stencil-route url="/add/:idEvaluation/:designation" component="spi-addrubrique" exact={true} />
+              <stencil-route url="/listeval" component="spi-eval" exact={true} />
+              <stencil-route url="/addquestion/:idevaluation/:designation/:idRubriqueEvaluation/:designrub" component="spi-addquestion" exact={true} />
+
               
             </stencil-route-switch>
           </stencil-router>
