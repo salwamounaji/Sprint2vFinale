@@ -74,7 +74,7 @@ export class AddQue {
             } else {
                 swal({
                     title: "Ajout échoué",
-                    text: "La rubrique n'a pas été ajoutée!",
+                    text: "La question n'a pas été ajoutée!",
                     icon: "warning",
                 });
             }

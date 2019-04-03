@@ -210,7 +210,7 @@ export class Adduni {
                       </p>
                     </div>
                     <div class="field">
-                      <label class="label" id="label">Nombre d'heure de cours </label>
+                      <label class="label" id="label">Nombre d'heures de cours </label>
                       <div class="control">
                         <p class="control is-expanded has-icons-left">
 

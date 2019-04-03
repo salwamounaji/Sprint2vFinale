@@ -104,7 +104,7 @@ export class SpiRubrique {
             confirmButtonText: 'Oui, supprimer!'
           }).then((result) => {
             if (result.value) {
-                let url = 'http://app-aead2b86-a4bb-4a14-9b97-cd0d09d78ae6.cleverapps.io//questionsevaluation/'+idQuestionEvaluation
+                let url = 'http://app-aead2b86-a4bb-4a14-9b97-cd0d09d78ae6.cleverapps.io/questionsevaluation/'+idQuestionEvaluation
                 return fetch((url), {
                     method: 'DELETE'
                 }).then(response => {
@@ -170,7 +170,7 @@ export class SpiRubrique {
                                     <article class="accordion  ">
                                         <div class="accordion-header ">
                                         <button onClick={() => this.deletefnct(item.idRubriqueEvaluation)}><i class="far fa-trash-alt"></i></button>
-                                            <p>{item.ordre} - {item.designation}</p>
+                                            <p>{item.designation}</p>
                                             <button class="toggle" aria-label="toggle" onClick={() => this.getuebynum(item.rubrique.idRubrique)}></button>
                                         </div>
                                         <div class="accordion-body">

@@ -3,7 +3,7 @@ import { RouterHistory } from '@stencil/router';
 import { UniteEnseignement } from '../../global/uniteEnseignement';
 import { ElementConstitutif } from '../../global/ElementConstitutif';
 import swal from 'sweetalert';
-import Swal from 'sweetalert2';
+
 
 
 @Component({
@@ -91,13 +91,7 @@ export class SpiCreatee {
       },
       body: JSON.stringify(payload)
     }).then(response => {
-      if (response.status === 200) {
-        Swal.fire({
-          type: 'success',
-          title: 'Ajout effectué',
-          showConfirmButton: false,
-          timer: 3000
-        });
+      if (response.ok) {
           location.href = '/listeval';
 
       } else {
@@ -288,10 +282,11 @@ export class SpiCreatee {
                       </div>
                       <div>
                       </div>
-
+                      <br/><br/>
                       <div id="divregroupee" class="field is-grouped has-text-centered">
                        <br/><br/>
                         <div class="control">
+                        
                           <button type="submit" class="button is-dark" onClick={() => this.creerUnite()}>
                             <span class="icon is-small">
                               <i class="fas fa-check"></i>

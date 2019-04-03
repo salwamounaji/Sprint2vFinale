@@ -80,12 +80,14 @@ export class SpiEval {
                     <div class="card" id="card">
                       <div class="card-image">
                         <figure class="image is-4by3">
-                          <img src="https://images.pexels.com/photos/1893486/pexels-photo-1893486.jpeg?cs=srgb&dl=american-checking-checklist-1893486.jpg&fm=jpg" alt="Placeholder image" class="modal-button" data-target="modal-image2" />
+                          <img src="https://images.pexels.com/photos/1288488/pexels-photo-1288488.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Placeholder image" class="modal-button" data-target="modal-image2" />
                         </figure>
                       </div>
                       <div class="card-content">
                         <div class="content">
-                          <h4 id="titreh4">{pst.designation} ({pst.noEvaluation})</h4>
+                          <h4 id="titreh4">{pst.designation}</h4>
+                          <p><b>Unité d'enseignement : </b>{pst.uniteEnseignement.id.codeUe}</p>
+                          <p><b>Élément constitutif : </b>{pst.elementConstitutif.id.codeEc}</p>
                           <p><b id="diplome">Période de l'évaluation : </b>{pst.periode}</p>
                           
                           <div class="field is-grouped">

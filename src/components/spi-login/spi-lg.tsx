@@ -39,13 +39,14 @@ export class SpiLg {
     .then((res)=> {
       this.data=res;
       sessionStorage.setItem('role', this.data.role);
-      sessionStorage.setItem('no_enseignant', this.data.noEnseignant.noEnseignant);
-      sessionStorage.setItem('nomEnseignant', this.data.noEnseignant.nom);
-      sessionStorage.setItem('prenomEnseignant', this.data.noEnseignant.prenom);
       if(sessionStorage.getItem('role') == "administrateur"){
        this.history.replace('/profil');
       }
       else{
+        sessionStorage.setItem('no_enseignant', this.data.noEnseignant.noEnseignant);
+      sessionStorage.setItem('nomEnseignant', this.data.noEnseignant.nom);
+      sessionStorage.setItem('prenomEnseignant', this.data.noEnseignant.prenom);
+      
         this.history.replace('/profilenseignant');}
    })
    .catch((error) =>{

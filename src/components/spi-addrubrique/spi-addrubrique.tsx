@@ -104,7 +104,7 @@ export class AddRub {
                     <section class="section">
                         <div class="container">
                             <br />
-                            <h2 class="title is-3"><font color="white">L'ajout d'une rubrique pour l'évaluation "{this.match.params.designation}"</font></h2>
+                            <h2 class="title is-3"><font color="black">L'ajout d'une rubrique pour l'évaluation "{this.match.params.designation}"</font></h2>
                             <div class="section-heading">
 
                             </div>

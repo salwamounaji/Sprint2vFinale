@@ -168,7 +168,7 @@ export class SpiCreatee {
                       </div>
 
                       <div class="field">
-                        <label class="label" id="label">Nombre d'heure de cours </label>
+                        <label class="label" id="label">Nombre d'heures de cours </label>
                         <div class="control has-icons-left">
                           <input class="input " type="number" placeholder="Entrer le nombre d'heure des cours" name="nbhCm" value="" onChange={(e: any) => (this.nbhCm = e.target.value)}/>
                           <span class="icon is-small is-left">

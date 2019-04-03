@@ -96,7 +96,7 @@ export class SpiAddForm {
                 <section class="section">
                     <div class="container">
                     <br/>
-                    <h2 class="title is-3"><font color="black">L'ajout d'une unité d'enseignement</font></h2>
+                    <h2 class="title is-3"><font color="black">L'ajout d'une formation</font></h2>
                         <br /><br />
 
                         <div class="columns">

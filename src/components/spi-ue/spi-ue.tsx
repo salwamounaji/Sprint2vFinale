@@ -48,7 +48,6 @@ export class SpiUe {
                 return fetch((url), {
                     method: 'delete',
                     headers: {
-                        Accept: "application/json, text/plain, /",
                         "Content-Type": "application/json"
                     },
                     body: JSON.stringify({
@@ -56,7 +55,7 @@ export class SpiUe {
                         codeUe: codeue
                     }),
                 }).then(response => {
-                    if (response.status === 406) {
+                    if (response.ok) {
                         Swal.fire({
                             type: 'success',
                             title:"L'unité d'enseignement a été bien supprimée.",
@@ -102,12 +101,9 @@ export class SpiUe {
             if (result.value) {
                 let url = 'http://app-aead2b86-a4bb-4a14-9b97-cd0d09d78ae6.cleverapps.io/elementsconstitutifs/' + this.match.params.codeFormation + '/' + codeue + '/' + codeec
                 return fetch((url), {
-                    method: 'DELETE', headers: {
-                        'Accept': 'application/json',
-                        'Content-Type': 'application/json',
-                    }
+                    method: 'DELETE',
                 }).then(response => {
-                    if (response.status === 200) {
+                    if (response.ok) {
                         Swal.fire({
                             type: 'success',
                             title:"L'élément constitutif a été bien supprimé.",

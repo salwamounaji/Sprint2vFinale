@@ -36,14 +36,13 @@ export class SpiListCoupleDeQualificatif {
                  return fetch('http://app-aead2b86-a4bb-4a14-9b97-cd0d09d78ae6.cleverapps.io/qualificatif/supprimerParid', {
             method: 'delete',
             headers: {
-                Accept: "application/json, text/plain, /",
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
                 idQualificatif: idQualificatif,
             }),
         }).then(response => {
-            if (response.status === 200) {
+            if (response.ok) {
                 Swal.fire({
                     type: 'success',
                     title:"Le couple de qualificatifs a été bien supprimé.",
